@@ -1,0 +1,201 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 20px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('img/background.png');
+}
+
+.containerOf{
+    display: none;
+}
+
+header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e5e9f8;
+    text-shadow: 0px 6px 4px rgba(66, 68, 90, 1);
+}
+
+header img{
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 3em;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: all .2s ease-in-out;
+    -webkit-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+}
+
+header img:hover
+{
+    opacity: 0.8;
+}
+
+.selectionBox{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+}
+
+.selectionBox div{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 2.8rem;
+}
+
+.quizImages{
+    display: flex;
+    margin: 2rem;
+    width: auto;
+    height: 4rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+.quizImages:hover{
+    transform: translate(2px,4px);
+}
+
+.quizImages:active{
+    transform: translate(4px,8px);
+}
+
+.quizBcg{
+    position: relative;
+    top: -10.4rem;
+    left: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    width: auto;
+    height: 4rem;
+    cursor: pointer;
+    z-index: -1;
+}
+
+.selectionBox span{
+   font-size: 1.2rem;
+   margin-top: -7rem;
+   opacity: 0.6;
+}
+
+.JSSelected{
+    display: none;
+}
+
+.JSSelectedOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/backgroundJS.png');
+}
+
+.JSBox{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    text-shadow: 0px 6px 4px rgba(66, 68, 90, 1);
+}
+
+.HTMLSelected{
+    display: none;
+}
+
+.HTMLSelectedOn{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/backgroundHTML.png');
+}
+
+.CSSSelected{
+    display: none;
+}
+
+.CSSSelectedOn{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/backgroundCSS.png');
+}
+
+.ReactSelected{
+    display: none;
+}
+
+.ReactSelectedOn{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/backgroundReact.png');
+}
