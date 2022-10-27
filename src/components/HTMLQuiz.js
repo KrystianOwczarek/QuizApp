@@ -3,19 +3,19 @@ import './quiz.css'
 import AccountImage from './img/accountImageBlack.png'
 import leftArrow from './img/leftArrow.png'
 
-const JSQuiz = props => {
+const HTMLQuiz = props => {
     const[howManyCorrect, setHowManyCorrect] = React.useState([])
     const [numberOfQuestion, setNumberOfQuestion] = React.useState(0)
-    const answers = props.JSQuestions.allAnswers[numberOfQuestion].answers.map(answer => <div className={'answer'} onClick={() => nextQuestion(answer.isCorrect)} key={answer.answer}>{answer.answer}</div>)
+    const answers = props.HTMLQuestions.allAnswers[numberOfQuestion].answers.map(answer => <div className={'answer'} onClick={() => nextQuestion(answer.isCorrect)} key={answer.answer}>{answer.answer}</div>)
     const bcgs = props.bcgForAnswers.map(bcg => <div className={bcg.class} key={bcg.key}></div>)
-    const [JSBoxStartClass, setJSBoxStartClass] = React.useState('JSBoxStartOn')
-    const [JSBoxQuizClass, setJSBoxQuizClass] = React.useState('JSBoxQuizOff')
+    const [HTMLBoxStartClass, setHTMLBoxStartClass] = React.useState('HTMLBoxStartOn')
+    const [HTMLBoxQuizClass, setHTMLBoxQuizClass] = React.useState('HTMLBoxQuizOff')
     const [EndQuiz, setEndQuiz] = React.useState('endQuizOff')
     let QuestNumber = numberOfQuestion + 1;
 
     const startQuiz = () => {
-        setJSBoxStartClass('JSBoxStartOff')
-        setJSBoxQuizClass('JSBoxQuizOn')
+        setHTMLBoxStartClass('HTMLBoxStartOff')
+        setHTMLBoxQuizClass('HTMLBoxQuizOn')
     }
 
     function checkCorrect(correct) {
@@ -25,11 +25,11 @@ const JSQuiz = props => {
     }
 
     function nextQuestion(correct) {
-        let length = props.JSQuestions.allAnswers.length
+        let length = props.HTMLQuestions.allAnswers.length
         let i = numberOfQuestion + 1
         if(i == length){
             i=0
-            setJSBoxQuizClass('JSBoxQuizOff')
+            setHTMLBoxQuizClass('HTMLBoxQuizOff')
             setEndQuiz('endQuizOn')
         }
         setNumberOfQuestion(i)
@@ -39,8 +39,8 @@ const JSQuiz = props => {
     const resetQuestion = () => {
         setNumberOfQuestion(0)
         setHowManyCorrect([])
-        setJSBoxStartClass('JSBoxStartOn')
-        setJSBoxQuizClass('JSBoxQuizOff')
+        setHTMLBoxStartClass('HTMLBoxStartOn')
+        setHTMLBoxQuizClass('HTMLBoxQuizOff')
         setEndQuiz('endQuizOff')
         props.Back()
     }
@@ -50,23 +50,23 @@ const JSQuiz = props => {
             <img onClick={resetQuestion} src={leftArrow} className={'arrow'}/>
         )
     }
-    
+
     return(
         <div>
             <header className={'header'}>
-                <h1>JavaScript Quiz</h1>
+                <h1>HTML Quiz</h1>
                 <img src={AccountImage}/>
             </header>    
-            <div className={JSBoxStartClass}>
+            <div className={HTMLBoxStartClass}>
                 {Arrow()}
                 <h2>Click the button to start quiz</h2>
                 <button onClick={startQuiz}>START</button>
                 <div className={'buttonBcg'}></div>
             </div>
-            <div className={JSBoxQuizClass}>
+            <div className={HTMLBoxQuizClass}>
                 {Arrow()}
                 <span>{QuestNumber}/10</span>
-                <h2>{props.JSQuestions.quest[numberOfQuestion]}</h2>
+                <h2>{props.HTMLQuestions.quest[numberOfQuestion]}</h2>
                 <div className={'answersPosition'}>
                     {answers}
                     {bcgs}
@@ -80,4 +80,4 @@ const JSQuiz = props => {
     )
 }
 
-export default JSQuiz
+export default HTMLQuiz

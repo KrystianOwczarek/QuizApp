@@ -40,6 +40,7 @@ header h1{
     align-items: center;
     color: #e5e9f8;
     text-shadow: 0px 6px 4px rgba(66, 68, 90, 1);
+    letter-spacing: 2px;
 }
 
 header img{
@@ -55,11 +56,7 @@ header img{
     -webkit-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
-}
-
-header img:hover
-{
-    opacity: 0.8;
+    z-index: 1;
 }
 
 .selectionBox{
@@ -67,7 +64,7 @@ header img:hover
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 2rem;
     width: 46em;
     height: 35em;
@@ -136,23 +133,6 @@ header img:hover
     background-image: url('img/backgroundJS.png');
 }
 
-.JSBox{
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 2rem;
-    padding: 2rem;
-    width: 46em;
-    height: 35em;
-    border-radius: 2rem;
-    background-color: #e5e9f8;
-    z-index: 1;
-    -webkit-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
-    box-shadow: 0px 0px 24px 1px rgba(66, 68, 90, 1);
-}
-
 .header{
     width: 100%;
     height: auto;
@@ -162,22 +142,362 @@ header img:hover
     align-items: center;
 }
 
+.arrow{
+    display: flex;
+    position: relative;
+    top: 0.4rem;
+    left: -20rem;
+    width: 1.2rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
 .header h1{
     display: flex;
     justify-content: center;
     align-items: center;
     color: #000000;
     text-shadow: 0px 6px 4px rgba(66, 68, 90, 1);
+    letter-spacing: 2px;
 }
 
+h2{
+    margin-top: 1.6rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/*JavaScript Quiz*/
+.JSBoxStartOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: -1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+/*przycisk start*/
+.JSBoxStartOn button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #f7e018;
+    border-radius: 2rem;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-top: 6rem;
+    z-index: 1;
+}
+
+.JSBoxStartOn button:hover{
+    transform: translateY(8px);
+}
+
+.JSBoxStartOn button:active{
+    transform: translateY(16px);
+}
+
+/*tło startu(element efektu wciskania przycisku)*/
+.JSBoxStartOn .buttonBcg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #c5b218;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-top: -3.2rem;
+}
+
+.JSBoxQuizOff{
+    display: none;
+}
+
+.JSBoxStartOff{
+    display: none;
+}
+
+/*pojemnik na quizy*/
+.JSBoxQuizOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+/*licznik*/
+.JSBoxQuizOn span{
+    display: flex;
+    position: relative;
+    top: -1.6rem;
+    left: 19.6rem;
+    font-size: 1.6rem;
+}
+
+/*pozycjonowanie odpowiedzi*/
+.JSBoxQuizOn .answersPosition{
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+/*odpowiedzi*/
+.JSBoxQuizOn .answer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #f7e018;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+.JSBoxQuizOn .answer:hover{
+    transform: translateY(8px);
+}
+
+.JSBoxQuizOn .answer:active{
+    transform: translateY(16px);
+}
+
+/*tła odpowiedzi(element efektu naciskania guzika)*/
+.JSBoxQuizOn .answersPosition .bcgForAnswers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -41.625rem;
+    top: 0.8rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #c5b218;
+}
+
+/*pojemnik wyświetlający się po ukończeniu quizu*/
+.endQuizOff{
+    display: none;
+}
+
+.endQuizOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.endQuizOn .arrow{
+    display: flex;
+    position: relative;
+    top: -14.19rem;
+    left: -8.05rem;
+    z-index: 1;
+}
+
+/*informacja o ilości zdobytych punktów*/
+.endQuizOn p{
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+/*HTML Quiz*/
 .HTMLSelected{
     display: none;
 }
 
 .HTMLSelectedOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-image: url('img/backgroundHTML.png');
+}
+
+.HTMLBoxStartOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: -1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.HTMLBoxStartOn button{ /*start*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #e44d26;
+    border-radius: 2rem;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-top: 6rem;
+    z-index: 1;
+}
+
+.HTMLBoxStartOn button:hover{
+    transform: translateY(8px);
+}
+
+.HTMLBoxStartOn button:active{
+    transform: translateY(16px);
+}
+
+.HTMLBoxStartOn .buttonBcg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #B63D1E;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-top: -3.2rem;
+}
+
+.HTMLBoxQuizOff{
+    display: none;
+}
+
+.HTMLBoxStartOff{
+    display: none;
+}
+
+.HTMLBoxQuizOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.HTMLBoxQuizOn span{
+    display: flex;
+    position: relative;
+    top: -0.6rem;
+    left: 19.6rem;
+    font-size: 1.6rem;
+}
+
+.HTMLBoxQuizOn .answersPosition{
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+.HTMLBoxQuizOn .answer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #e44d26;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+.HTMLBoxQuizOn .answer:hover{
+    transform: translateY(8px);
+}
+
+.HTMLBoxQuizOn .answer:active{
+    transform: translateY(16px);
+}
+
+.HTMLBoxQuizOn .answersPosition .bcgForAnswers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -41.625rem;
+    top: 0.8rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #B63D1E;
 }
 
 .CSSSelected{
@@ -185,9 +505,150 @@ header img:hover
 }
 
 .CSSSelectedOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-image: url('img/backgroundCSS.png');
+}
+
+.CSSBoxStartOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: -1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.CSSBoxStartOn button{ /*start*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #264de4;
+    border-radius: 2rem;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-top: 6rem;
+    z-index: 1;
+}
+
+.CSSBoxStartOn button:hover{
+    transform: translateY(8px);
+}
+
+.CSSBoxStartOn button:active{
+    transform: translateY(16px);
+}
+
+.CSSBoxStartOn .buttonBcg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #1e3db6;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-top: -3.2rem;
+}
+
+.CSSBoxQuizOff{
+    display: none;
+}
+
+.CSSBoxStartOff{
+    display: none;
+}
+
+.CSSBoxQuizOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.CSSBoxQuizOn span{
+    display: flex;
+    position: relative;
+    top: -0.6rem;
+    left: 19.6rem;
+    font-size: 1.6rem;
+}
+
+.CSSBoxQuizOn .answersPosition{
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+.CSSBoxQuizOn .answer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #264de4;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+.CSSBoxQuizOn .answer:hover{
+    transform: translateY(8px);
+}
+
+.CSSBoxQuizOn .answer:active{
+    transform: translateY(16px);
+}
+
+.CSSBoxQuizOn .answersPosition .bcgForAnswers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -41.625rem;
+    top: 0.8rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #1e3db6 ;
 }
 
 .ReactSelected{
@@ -195,7 +656,148 @@ header img:hover
 }
 
 .ReactSelectedOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-image: url('img/backgroundReact.png');
+}
+
+.ReactBoxStartOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: -1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.ReactBoxStartOn button{ /*start*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #00d8ff;
+    border-radius: 2rem;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-top: 6rem;
+    z-index: 1;
+}
+
+.ReactBoxStartOn button:hover{
+    transform: translateY(8px);
+}
+
+.ReactBoxStartOn button:active{
+    transform: translateY(16px);
+}
+
+.ReactBoxStartOn .buttonBcg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #00ACCC;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-top: -3.2rem;
+}
+
+.ReactBoxQuizOff{
+    display: none;
+}
+
+.ReactBoxStartOff{
+    display: none;
+}
+
+.ReactBoxQuizOn{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 46em;
+    height: 35em;
+    border-radius: 2rem;
+    background-color: #e5e9f8;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
+}
+
+.ReactBoxQuizOn span{
+    display: flex;
+    position: relative;
+    top: -0.6rem;
+    left: 19.6rem;
+    font-size: 1.6rem;
+}
+
+.ReactBoxQuizOn .answersPosition{
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+.ReactBoxQuizOn .answer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #00d8ff;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+.ReactBoxQuizOn .answer:hover{
+    transform: translateY(8px);
+}
+
+.ReactBoxQuizOn .answer:active{
+    transform: translateY(16px);
+}
+
+.ReactBoxQuizOn .answersPosition .bcgForAnswers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -41.625rem;
+    top: 0.8rem;
+    width: 18rem;
+    height: 4rem;
+    margin: 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    background-color: #00ACCC ;
 }
