@@ -4,6 +4,9 @@ import JSQuiz from './JSQuiz'
 import HTMLQuiz from './HTMLQuiz'
 import CSSQuiz from './CSSQuiz'
 import ReactQuiz from './ReactQuiz'
+import Login from './Login'
+import Register from './Register'
+import AccForLogged from './AccForLogged'
 
 import AccountImage from './img/accountImage.png'
 import JSImage from './img/js.png'
@@ -47,10 +50,12 @@ class Quiz extends React.Component{
 
         quizCssClass: {
             containerClass: 'container',
-            JSClass: 'JSSelected',
-            HTMLClass: 'HTMLSelected',
-            CSSClass: 'CSSSelected',
-            ReactClass: 'ReactSelected'
+            JSClass: 'noDisplay',
+            HTMLClass: 'noDisplay',
+            CSSClass: 'noDisplay',
+            ReactClass: 'noDisplay',
+            LoginClass: 'noDisplay',
+            RegisterClass: 'noDisplay'
         },
 
         bcgForAnswers: [
@@ -211,76 +216,76 @@ class Quiz extends React.Component{
         },
 
         CSSQuestions: {
-            quest: ['', '','','','What year was HTML invented?','','Who created the HTML?','','',''],
+            quest: ['How to invoke to the class?', 'Finish it correctly background-image: ...','What year was CSS invented?',"Which commands set an element that doesn't reposition other elements?",'Who created the CSS?','How to set flexible elements in a column without wrapping?','How to set a rounded corner?','How to center a flexible element vertically?','Which value represents the left margin: margin: 25px 50px 75px 100px;','How to set vertical spacing?'],
             allAnswers: [
                     {answers: [
-                        {answer: 'Brendan Eich', isCorrect: true},
-                        {answer: 'Bill Gates', isCorrect: false},
-                        {answer: 'Elon Musk', isCorrect: false},
-                        {answer: 'Rasmus Lerdorf', isCorrect: false}
+                        {answer: '.class', isCorrect: true},
+                        {answer: '#class', isCorrect: false},
+                        {answer: 'class', isCorrect: false},
+                        {answer: '$class', isCorrect: false}
                     ]},
                     
                     {answers: [
-                        {answer: '.pop()', isCorrect: false},
-                        {answer: '.join()', isCorrect: false},
-                        {answer: '.pusch()', isCorrect: true},
-                        {answer: '.unshift()', isCorrect: false}
+                        {answer: 'src("img.jpg")', isCorrect: false},
+                        {answer: 'url("img.jpg")', isCorrect: true},
+                        {answer: 'img("img.jpg")', isCorrect: false},
+                        {answer: 'href("img.jpg")', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: 'const start = () => {}', isCorrect: false},
-                        {answer: 'const start = function() {}', isCorrect: true},
-                        {answer: 'class start {}', isCorrect: false},
-                        {answer: 'function start() {}', isCorrect: false}
+                        {answer: '1991', isCorrect: true},
+                        {answer: '1996', isCorrect: false},
+                        {answer: '2003', isCorrect: false},
+                        {answer: '1992', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: 'document.reload()', isCorrect: false},
-                        {answer: 'location.replace()', isCorrect: false},
-                        {answer: 'document.replace()', isCorrect: false},
-                        {answer: 'location.reload()', isCorrect: true}
+                        {answer: 'position: absolute;', isCorrect: true},
+                        {answer: 'position: relative;', isCorrect: false},
+                        {answer: 'position: inherit;', isCorrect: false},
+                        {answer: 'position: static;', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: '1990', isCorrect: false},
-                        {answer: '1995', isCorrect: true},
-                        {answer: '1999', isCorrect: false},
-                        {answer: '2003', isCorrect: false}
+                        {answer: 'Vitalika Buterina', isCorrect: false},
+                        {answer: 'Håkon Wium Lie', isCorrect: false},
+                        {answer: 'Brendan Eich', isCorrect: false},
+                        {answer: 'W3C Organization', isCorrect: true}
                     ]},
                     
                     {answers: [
-                        {answer: 'Angular', isCorrect: false},
-                        {answer: 'React', isCorrect: true},
-                        {answer: 'Vue.js', isCorrect: false},
-                        {answer: 'Django', isCorrect: false}
+                        {answer: 'flex-flow: row wrap;', isCorrect: false},
+                        {answer: 'flex-flow: column nowrap;', isCorrect: true},
+                        {answer: 'flex-flow: row nowrap;', isCorrect: false},
+                        {answer: 'flex-flow: column wrap;', isCorrect: false}
+                    ]},
+
+                    {answers: [
+                        {answer: 'border: 5px;', isCorrect: false},
+                        {answer: 'border-style: round-corner;', isCorrect: false},
+                        {answer: 'border-radius: 5spx;', isCorrect: true},
+                        {answer: 'border-width: 5px;', isCorrect: false}
                     ]},
                     
                     {answers: [
-                        {answer: '.concat()', isCorrect: true},
-                        {answer: '.join()', isCorrect: false},
-                        {answer: '.slice()', isCorrect: false},
-                        {answer: '.match()', isCorrect: false}
+                        {answer: 'align-items: center;', isCorrect: true},
+                        {answer: 'justify-content: center;', isCorrect: false},
+                        {answer: 'flex-direction: center;', isCorrect: false},
+                        {answer: 'align-content: center;', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: 'let', isCorrect: true},
-                        {answer: 'const', isCorrect: false},
-                        {answer: 'var', isCorrect: false},
-                        {answer: 'int', isCorrect: false}
+                        {answer: '25px', isCorrect: false},
+                        {answer: '50px', isCorrect: false},
+                        {answer: '75px', isCorrect: false},
+                        {answer: '100px', isCorrect: true}
                     ]},
 
                     {answers: [
-                        {answer: '/*JavaScript*/', isCorrect: false},
-                        {answer: '<!--JavaScript-->', isCorrect: false},
-                        {answer: '//JavaScript', isCorrect: true},
-                        {answer: '/*JavaScript', isCorrect: false}
-                    ]},
-
-                    {answers: [
-                        {answer: 'Math.ceil()', isCorrect: false},
-                        {answer: 'Math.floor()', isCorrect: true},
-                        {answer: 'Math.round()', isCorrect: false},
-                        {answer: 'Matj.pow()', isCorrect: false}
+                        {answer: 'letter-spacing: 120%;', isCorrect: false},
+                        {answer: 'vertical-spacing: 120%;', isCorrect: false},
+                        {answer: 'line-height: 120%;', isCorrect: true},
+                        {answer: 'vertical-heigth: 120%;', isCorrect: false}
                     ]}
             ]  
         },
@@ -358,56 +363,48 @@ class Quiz extends React.Component{
                         {answer: 'Matj.pow()', isCorrect: false}
                     ]}
             ]  
-        }
+        },
+
+        logged: this.getBoolean(),
+
+        nick: this.getNick(),
+
+        navElements: [
+            {title: 'Change avatar', id: 1, key: '123das'},
+            {title: 'Statistics', id: 2, key: '545gfd'},
+            {title: 'Change password', id: 3, key: '555gkd'},
+            {title: 'Delete account', id: 4, key: '875hcf'},
+            {title: 'Logout', id: 5, key: '864ghf'}
+        ]
+    }
+
+    SetClass(container, JS, HTML, CSS, React, Login, Register){
+        this.setState({
+            quizCssClass: {
+                containerClass: container,
+                JSClass: JS,
+                HTMLClass: HTML,
+                CSSClass: CSS,
+                ReactClass: React,
+                LoginClass: Login,
+                RegisterClass: Register
+            }
+        })
     }
 
     SelectedQuiz(id) {
         if(id == 1){
             //alert(id)
-            this.state.JSQuestions.quest.sort(() => 0.5 - Math.random())
-            this.state.JSQuestions.allAnswers.sort(() => 0.5 - Math.random())
-            this.setState({
-                quizCssClass: {
-                    containerClass: 'containerOf',
-                    JSClass: 'JSSelectedOn',
-                    HTMLClass: 'HTMLSelected',
-                    CSSClass: 'CSSSelected',
-                    ReactClass: 'ReactSelected'
-                }
-            })
+            this.SetClass('noDisplay', 'JSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 2){
             //alert(id)
-            this.setState({
-                quizCssClass: {
-                    containerClass: 'containerOf',
-                    HTMLClass: 'HTMLSelectedOn',
-                    JSClass: 'JSSelected',
-                    CSSClass: 'CSSSelected',
-                    ReactClass: 'ReactSelected'
-                }
-            })
+            this.SetClass('noDisplay', 'noDisplay', 'HTMLSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 3){
             //alert(id)
-            this.setState({
-                quizCssClass: {
-                    containerClass: 'containerOf',
-                    CSSClass: 'CSSSelectedOn',
-                    JSClass: 'JSSelected',
-                    HTMLClass: 'HTMLSelected',
-                    ReactClass: 'ReactSelected'
-                }
-            })
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'CSSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 4){
             //alert(id)
-            this.setState({
-                quizCssClass: {
-                    containerClass: 'containerOf',
-                    ReactClass: 'ReactSelectedOn',
-                    JSClass: 'JSSelected',
-                    HTMLClass: 'HTMLSelected',
-                    CSSClass: 'CSSSelected',
-                }
-            })
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'ReactSelectedOn', 'noDisplay', 'noDisplay')
         }
     }
 
@@ -424,37 +421,71 @@ class Quiz extends React.Component{
         )
     }
 
-    Account() {
+    Account(img) {
+        const Login = () => {
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay')
+        }
+
         return( 
-            <img id={'acc'} src={AccountImage}/>
+            <img src={img} onClick={Login} title={'Login/Register'}/>
         )
     }
 
     Back() {
         this.state.numberOfQuestion = 0
-        this.setState({
-            quizCssClass: {
-                containerClass: 'container',
-                ReactClass: 'ReactSelected',
-                JSClass: 'JSSelected',
-                HTMLClass: 'HTMLSelected',
-                CSSClass: 'CSSSelected',
-            }
-        })
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
     }
-    
+
+    Loggout() {
+        localStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
+    Logged() {
+        localStorage.setItem('logged', JSON.stringify(true))
+    }
+
+    BackToLogin(){
+        this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay')
+    }
+
+    Register() {
+        const loadRegister = () => {
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn')
+        }
+
+        return(
+            <span onClick={loadRegister}>Register</span>
+        )
+    }
+
+    setContainerLogged() {
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+    }
+
+    getBoolean() {
+        let log = localStorage.getItem('logged')
+        return JSON.parse(log)
+    }
+
+    getNick() {
+        let nick = localStorage.getItem('nick')
+        return nick
+    }
+
     render(){
+        let isLogged = this.state.logged
         return(
             <div>
                 <div className={this.state.quizCssClass.containerClass}>
                         <header>
                             <h1>{this.state.header}</h1>
-                            {this.Account()}
+                            {isLogged ? <AccForLogged nick={this.state.nick} Loggout={this.Loggout} navElements={this.state.navElements}/> : this.Account(AccountImage)}
                         </header>
                         {this.QuizsTails()}
-                </div>   
+                </div>
                 <div className={this.state.quizCssClass.JSClass}>
-                    <JSQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} JSQuestions={this.state.JSQuestions}/>
+                    <JSQuiz Back={this.Back.bind(this)} Account={this.Account} bcgForAnswers={this.state.bcgForAnswers} JSQuestions={this.state.JSQuestions}/>
                 </div>
                 <div className={this.state.quizCssClass.HTMLClass}>
                     <HTMLQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} HTMLQuestions={this.state.HTMLQuestions}/>
@@ -464,6 +495,12 @@ class Quiz extends React.Component{
                 </div>
                 <div className={this.state.quizCssClass.ReactClass}>
                     <ReactQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} ReactQuestions={this.state.ReactQuestions}/>
+                </div>
+                <div className={this.state.quizCssClass.LoginClass}>
+                    <Login logged={this.state.logged} Logged={this.Logged} Register={this.Register.bind(this)} Back={this.Back.bind(this)}/>
+                </div>
+                <div className={this.state.quizCssClass.RegisterClass}>
+                    <Register BackToLogin={this.BackToLogin.bind(this)}/>
                 </div>
             </div>
         )

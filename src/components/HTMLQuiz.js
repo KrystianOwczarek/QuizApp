@@ -1,6 +1,5 @@
 import React, { createElement } from 'react'
 import './quiz.css'
-import AccountImage from './img/accountImageBlack.png'
 import leftArrow from './img/leftArrow.png'
 
 const HTMLQuiz = props => {
@@ -55,7 +54,6 @@ const HTMLQuiz = props => {
         <div>
             <header className={'header'}>
                 <h1>HTML Quiz</h1>
-                <img src={AccountImage}/>
             </header>    
             <div className={HTMLBoxStartClass}>
                 {Arrow()}

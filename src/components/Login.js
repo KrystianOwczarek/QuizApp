@@ -2,36 +2,27 @@ import React, {useState} from 'react'
 import './quiz.css'
 import leftArrow from './img/leftArrow.png'
 
-const Register = props => {
+const Login = props => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
     const [alertClass, setAlertClass] = useState('noDisplay')
     const [header, setHeader] = useState('')
     const [message, setMessage] = useState('')
 
-    const setAlert = (alert, header, message) => {
-        setAlertClass(alert)
-        setHeader(header)
-        setMessage(message)
-    }
-   
-    function Arrow() {
-        const backForRegister = () => {
+    const referForRegister = () => {
+        const clearTheForm = () => {
             setLogin('')
             setPassword('')
-            setConfirmPassword('')
-            props.BackToLogin()
             setAlertClass('noDisplay')
         }
 
         return(
-            <img onClick={backForRegister} src={leftArrow} className={'arrow'}/>
+            <span onClick={clearTheForm}>{props.Register()}</span>
         )
     }
-
-    const registerUser = (username, password) => {
-        fetch('http://localhost:8080/users',{
+    
+    const loginUser = (username, password) => {
+        fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -43,47 +34,77 @@ const Register = props => {
             })
         }).then(function(response) {
             if(response.status === 200){
-                setAlert('success', 'User registered!', 'You have created an account.')
+                props.Logged()
+                props.Back()
+                window.location.reload()
+                localStorage.setItem('nick', username)
+                getID()
             }else{
-                setAlert('failure', 'User already exist!', "You haven't created an account.")
+                setAlert('failure', "User don't exist!", "Wrong password or username.")
             }
         }).catch(function(error) {
             setAlert('failure', 'Error!', 'Something went wrong.')
         })
     }
 
-    const createAccount = (e) => {
+    const getID =() => {
+        let nick = localStorage.getItem('nick')
+        fetch('http://localhost:8080/users')
+        .then(res => res.json())
+        .then(data => data.map(d => {
+            if(nick == d.username){
+                localStorage.setItem('ID', JSON.stringify(d.id))
+            }
+        }))
+        .catch(err => console.log(err))
+    }
+
+    const setAlert = (alert, header, message) => {
+        setAlertClass(alert)
+        setHeader(header)
+        setMessage(message)
+    }
+
+    const checkAccount = (e) => {
         e.preventDefault()
-        if(password == confirmPassword && login.length >= 4 && password.length >= 6){
-            registerUser(login, password)
+        loginUser(login, password)
+        setLogin('')
+        setPassword('')
+    }
+
+    function Arrow() {
+        const backToMainWeb = () => {
             setLogin('')
             setPassword('')
-            setConfirmPassword('')
-        }else if(password != confirmPassword){
-            setAlert('failure', "User don't created!", "Password don't confirmed.")
-        }else{
-            setAlert('failure', "User don't created!", 'Too short login or password.')
+            setAlertClass('noDisplay')
+            props.Back()
         }
+
+        return(
+            <img onClick={backToMainWeb} src={leftArrow} className={'arrow'}/>
+        )
     }
 
     return(
         <div>
             <header>
-                <h1>Register</h1>
+                <h1>Sign in</h1>
             </header>    
-            <div className={'registerBox'}>
+            <div className={'loginBox'}>
                 {Arrow()}
-                <form onSubmit={createAccount}>
+                <form onSubmit={checkAccount}>
                     <input 
-                        type={'login'} 
+                        type={'text'} 
+                        name={'login'}
                         min={4} 
-                        placeholder={'Login'}
                         required
+                        placeholder={'Login'}
                         value={login}
                         onChange={(e) => setLogin(e.target.value)}
                     />
                     <input 
                         type={'password'} 
+                        name={'password'} 
                         min={4} 
                         max={12} 
                         placeholder={'Password'}
@@ -91,17 +112,9 @@ const Register = props => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <input 
-                        type={'password'} 
-                        min={4} 
-                        max={12} 
-                        placeholder={'Confirm password'}
-                        required
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    <button>REGISTER</button>
-                    <p>Your login must be at least 4 signs long and password at least 6 signs long.</p>
+                    <button>LOGIN</button>
+                    <p>You don't have an account?</p>
+                    {referForRegister()}
                 </form>
             </div>
             <div className={alertClass}><h3>{header}</h3><p>{message}</p></div>
@@ -109,4 +122,4 @@ const Register = props => {
     )
 }
 
-export default Register
+export default Login

@@ -1,6 +1,5 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import './quiz.css'
-import AccountImage from './img/accountImageBlack.png'
 import leftArrow from './img/leftArrow.png'
 
 const JSQuiz = props => {
@@ -52,10 +51,9 @@ const JSQuiz = props => {
     }
     
     return(
-        <div>
+        <div className={props.JSClass}>
             <header className={'header'}>
                 <h1>JavaScript Quiz</h1>
-                <img src={AccountImage}/>
             </header>    
             <div className={JSBoxStartClass}>
                 {Arrow()}
