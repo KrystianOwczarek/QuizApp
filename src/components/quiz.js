@@ -6,7 +6,7 @@ import CSSQuiz from './CSSQuiz'
 import ReactQuiz from './ReactQuiz'
 import Login from './Login'
 import Register from './Register'
-import AccForLogged from './AccForLogged'
+import NavForLogged from './NavForLogged'
 
 import AccountImage from './img/accountImage.png'
 import JSImage from './img/js.png'
@@ -55,7 +55,8 @@ class Quiz extends React.Component{
             CSSClass: 'noDisplay',
             ReactClass: 'noDisplay',
             LoginClass: 'noDisplay',
-            RegisterClass: 'noDisplay'
+            RegisterClass: 'noDisplay',
+            DeleteAccount: 'noDisplay'
         },
 
         bcgForAnswers: [
@@ -378,7 +379,7 @@ class Quiz extends React.Component{
         ]
     }
 
-    SetClass(container, JS, HTML, CSS, React, Login, Register){
+    SetClass(container, JS, HTML, CSS, React, Login, Register, DeleteAccount){
         this.setState({
             quizCssClass: {
                 containerClass: container,
@@ -387,7 +388,8 @@ class Quiz extends React.Component{
                 CSSClass: CSS,
                 ReactClass: React,
                 LoginClass: Login,
-                RegisterClass: Register
+                RegisterClass: Register,
+                DeleteAccount: DeleteAccount
             }
         })
     }
@@ -395,16 +397,16 @@ class Quiz extends React.Component{
     SelectedQuiz(id) {
         if(id == 1){
             //alert(id)
-            this.SetClass('noDisplay', 'JSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+            this.SetClass('noDisplay', 'JSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 2){
             //alert(id)
-            this.SetClass('noDisplay', 'noDisplay', 'HTMLSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+            this.SetClass('noDisplay', 'noDisplay', 'HTMLSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 3){
             //alert(id)
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'CSSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay')
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'CSSSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
         }else if(id == 4){
             //alert(id)
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'ReactSelectedOn', 'noDisplay', 'noDisplay')
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'ReactSelectedOn', 'noDisplay', 'noDisplay', 'noDisplay')
         }
     }
 
@@ -423,7 +425,7 @@ class Quiz extends React.Component{
 
     Account(img) {
         const Login = () => {
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay')
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
         }
 
         return( 
@@ -433,7 +435,7 @@ class Quiz extends React.Component{
 
     Back() {
         this.state.numberOfQuestion = 0
-        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
     }
 
     Loggout() {
@@ -446,12 +448,12 @@ class Quiz extends React.Component{
     }
 
     BackToLogin(){
-        this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay')
+        this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
     }
 
     Register() {
         const loadRegister = () => {
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn')
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn', 'noDisplay')
         }
 
         return(
@@ -460,7 +462,7 @@ class Quiz extends React.Component{
     }
 
     setContainerLogged() {
-        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
     }
 
     getBoolean() {
@@ -471,7 +473,7 @@ class Quiz extends React.Component{
     getNick() {
         let nick = localStorage.getItem('nick')
         return nick
-    }
+    } 
 
     render(){
         let isLogged = this.state.logged
@@ -480,7 +482,7 @@ class Quiz extends React.Component{
                 <div className={this.state.quizCssClass.containerClass}>
                         <header>
                             <h1>{this.state.header}</h1>
-                            {isLogged ? <AccForLogged nick={this.state.nick} Loggout={this.Loggout} navElements={this.state.navElements}/> : this.Account(AccountImage)}
+                            {isLogged ? <NavForLogged nick={this.state.nick} Loggout={this.Loggout} navElements={this.state.navElements}/> : this.Account(AccountImage)}
                         </header>
                         {this.QuizsTails()}
                 </div>

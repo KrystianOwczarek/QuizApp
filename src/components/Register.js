@@ -16,15 +16,15 @@ const Register = props => {
         setMessage(message)
     }
    
-    function Arrow() {
-        const backForRegister = () => {
-            setLogin('')
-            setPassword('')
-            setConfirmPassword('')
-            props.BackToLogin()
-            setAlertClass('noDisplay')
-        }
+    const backForRegister = () => {
+        setLogin('')
+        setPassword('')
+        setConfirmPassword('')
+        props.BackToLogin()
+        setAlertClass('noDisplay')
+    }
 
+    function Arrow() {
         return(
             <img onClick={backForRegister} src={leftArrow} className={'arrow'}/>
         )

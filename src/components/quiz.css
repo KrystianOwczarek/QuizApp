@@ -1028,3 +1028,49 @@ form span:hover{
     color: #000000;
     background-color: #8CADD5;
 }
+
+/*formularz usuwania konta*/
+.deleteForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.deleteForm p{
+    position: absolute;
+    font-size: 1.2rem;
+    top: 14rem;
+    color: #e5e9f8;
+}
+
+.deleteForm input{
+    background-color: #DB9798;
+    border: 3px solid #b83032;
+}
+
+
+.deleteForm input::placeholder{
+    color: #e5e9f8;
+    
+}
+
+.deleteForm button{
+    background-color: #b83032;
+}
+
+.deleteForm button:hover{
+    background-color: #932628;
+}
+
+.deleteForm img{
+    box-shadow: none;
+    border-radius: 0;
+}

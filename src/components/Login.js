@@ -38,6 +38,7 @@ const Login = props => {
                 props.Back()
                 window.location.reload()
                 localStorage.setItem('nick', username)
+                localStorage.setItem('password', password)
                 getID()
             }else{
                 setAlert('failure', "User don't exist!", "Wrong password or username.")
@@ -96,7 +97,6 @@ const Login = props => {
                     <input 
                         type={'text'} 
                         name={'login'}
-                        min={4} 
                         required
                         placeholder={'Login'}
                         value={login}
@@ -105,8 +105,6 @@ const Login = props => {
                     <input 
                         type={'password'} 
                         name={'password'} 
-                        min={4} 
-                        max={12} 
                         placeholder={'Password'}
                         required
                         value={password}
