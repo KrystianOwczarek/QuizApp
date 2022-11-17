@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!--rodzic, po którym dziedziczą właściwości aplikacje bazujące na springu-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>registration</groupId>
+	<artifactId>Registration</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Registration</name>
+	<description>Registration for users</description>
+	<properties>
+		<java.version>19</java.version>
+	</properties>
+	<dependencies>
+		<!--hibernate(framework) odpowiada za odwzorowanie obiektów klas na baze dancyh, ułatwia komunikację pomiędzy bazą danych a aplikacją -->
+		<!--hibernate-core to biblioteka umożliwiająca mapowanie obiektowo-relacyjnego dla Java w dokumentach XML-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!--JDBC to interfejs programowania umożliwiający łączenie z bazami danych aplikacji Java,Spring Boot JDBC umożliwia start i biblioteki do połączenia się aplikacji z JDBC-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!--JPA odpowiada za mapowanie obiektowo-relacyjne dla Java, Spring Boot JPA służy do zarządzania zależnymi danymi-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!--RESTfull oznacza, że dane API(Application Programming Interface) jest w pełni zgodne ze standardem REST,
+		starter-web jest używany do budowania aplikacji webowych zawierający aplikacje RESTfull-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--connector implementuje rozszerzenia i interfejs Java Database Connectivity(JDBC)-->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--lombok to biblioteka, która dodaje nowe funkcjonalności do Java-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!--starter-test testuje aplikacje Java-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
