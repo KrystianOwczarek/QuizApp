@@ -1,5 +1,5 @@
 import React from 'react'
-import './quiz.css'
+import './style.css'
 import JSQuiz from './JSQuiz'
 import HTMLQuiz from './HTMLQuiz'
 import CSSQuiz from './CSSQuiz'
@@ -21,12 +21,13 @@ import ReactBcg from './img/reactBcg.png'
 
 let IDArrow = [];
 
+//funkcja wyświetlająca kafelki quizów
 const QuizLoading = props => {
 
+    //funckja zwracająca id wybranego quizu
     const loadingQuiz = () => {
         IDArrow = []
         IDArrow.push(props.quizSelect.id)
-        //alert(IDArrow)
         {props.SelectedQuiz(IDArrow)}
     }
 
@@ -292,81 +293,81 @@ class Quiz extends React.Component{
         },
 
         ReactQuestions: {
-            quest: ['', '','','','What year was HTML invented?','','Who created the HTML?','','',''],
+            quest: ['How to assign a CSS class to an element?', 'An object for stored data and component information.','What method is used to return JSX and read props?','How to create a loop in React?','What year was React invented?','What version of React adds hooks?','Who created the React?','What is the name of the functions for returning and displaying parts of the application?','Which method is used to download data asynchronously?','What are the names of the arguments passed to React Components?'],
             allAnswers: [
                     {answers: [
-                        {answer: 'Brendan Eich', isCorrect: true},
-                        {answer: 'Bill Gates', isCorrect: false},
-                        {answer: 'Elon Musk', isCorrect: false},
-                        {answer: 'Rasmus Lerdorf', isCorrect: false}
+                        {answer: "class=''", isCorrect: false},
+                        {answer: 'className={class}', isCorrect: false},
+                        {answer: "className={'class'}", isCorrect: true},
+                        {answer: 'class={class}', isCorrect: false}
                     ]},
                     
                     {answers: [
-                        {answer: '.pop()', isCorrect: false},
-                        {answer: '.join()', isCorrect: false},
-                        {answer: '.pusch()', isCorrect: true},
-                        {answer: '.unshift()', isCorrect: false}
-                    ]},
-
-                    {answers: [
-                        {answer: 'const start = () => {}', isCorrect: false},
-                        {answer: 'const start = function() {}', isCorrect: true},
-                        {answer: 'class start {}', isCorrect: false},
-                        {answer: 'function start() {}', isCorrect: false}
-                    ]},
-
-                    {answers: [
-                        {answer: 'document.reload()', isCorrect: false},
-                        {answer: 'location.replace()', isCorrect: false},
-                        {answer: 'document.replace()', isCorrect: false},
-                        {answer: 'location.reload()', isCorrect: true}
-                    ]},
-
-                    {answers: [
-                        {answer: '1990', isCorrect: false},
-                        {answer: '1995', isCorrect: true},
-                        {answer: '1999', isCorrect: false},
-                        {answer: '2003', isCorrect: false}
-                    ]},
-                    
-                    {answers: [
-                        {answer: 'Angular', isCorrect: false},
-                        {answer: 'React', isCorrect: true},
-                        {answer: 'Vue.js', isCorrect: false},
-                        {answer: 'Django', isCorrect: false}
-                    ]},
-                    
-                    {answers: [
-                        {answer: '.concat()', isCorrect: true},
-                        {answer: '.join()', isCorrect: false},
-                        {answer: '.slice()', isCorrect: false},
-                        {answer: '.match()', isCorrect: false}
-                    ]},
-
-                    {answers: [
-                        {answer: 'let', isCorrect: true},
                         {answer: 'const', isCorrect: false},
-                        {answer: 'var', isCorrect: false},
-                        {answer: 'int', isCorrect: false}
+                        {answer: 'hook', isCorrect: false},
+                        {answer: 'state', isCorrect: true},
+                        {answer: 'let', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: '/*JavaScript*/', isCorrect: false},
-                        {answer: '<!--JavaScript-->', isCorrect: false},
-                        {answer: '//JavaScript', isCorrect: true},
-                        {answer: '/*JavaScript', isCorrect: false}
+                        {answer: 'render()', isCorrect: true},
+                        {answer: 'return()', isCorrect: false},
+                        {answer: 'read()', isCorrect: false},
+                        {answer: 'window.return()', isCorrect: false}
                     ]},
 
                     {answers: [
-                        {answer: 'Math.ceil()', isCorrect: false},
-                        {answer: 'Math.floor()', isCorrect: true},
-                        {answer: 'Math.round()', isCorrect: false},
-                        {answer: 'Matj.pow()', isCorrect: false}
+                        {answer: 'for()', isCorrect: false},
+                        {answer: 'do while()', isCorrect: false},
+                        {answer: 'while()', isCorrect: true},
+                        {answer: 'map()', isCorrect: false}
+                    ]},
+
+                    {answers: [
+                        {answer: '2002', isCorrect: false},
+                        {answer: '2010', isCorrect: false},
+                        {answer: '2014', isCorrect: false},
+                        {answer: '2013', isCorrect: true}
+                    ]},
+                    
+                    {answers: [
+                        {answer: '15.6', isCorrect: false},
+                        {answer: '16.10.2', isCorrect: false},
+                        {answer: '18.0.0', isCorrect: false},
+                        {answer: '16.8', isCorrect: true}
+                    ]},
+                    
+                    {answers: [
+                        {answer: 'Evana You', isCorrect: false},
+                        {answer: 'Jordana Walke', isCorrect: true},
+                        {answer: 'Miško Hevery', isCorrect: false},
+                        {answer: 'Adama Abronsa', isCorrect: false}
+                    ]},
+
+                    {answers: [
+                        {answer: 'Components', isCorrect: true},
+                        {answer: 'Functions', isCorrect: false},
+                        {answer: 'Props', isCorrect: false},
+                        {answer: 'Application Parts', isCorrect: false}
+                    ]},
+
+                    {answers: [
+                        {answer: 'Promise()', isCorrect: false},
+                        {answer: 'readFile()', isCorrect: false},
+                        {answer: 'fetch()', isCorrect: true},
+                        {answer: 'require()', isCorrect: false}
+                    ]},
+
+                    {answers: [
+                        {answer: 'state', isCorrect: false},
+                        {answer: 'props', isCorrect: true},
+                        {answer: 'prompt', isCorrect: false},
+                        {answer: 'acces', isCorrect: false}
                     ]}
             ]  
         },
 
-        logged: this.getBoolean(),
+        logged: this.getUserStatus(),
 
         nick: this.getNick(),
 
@@ -379,21 +380,7 @@ class Quiz extends React.Component{
         ]
     }
 
-    SetClass(container, JS, HTML, CSS, React, Login, Register, DeleteAccount){
-        this.setState({
-            quizCssClass: {
-                containerClass: container,
-                JSClass: JS,
-                HTMLClass: HTML,
-                CSSClass: CSS,
-                ReactClass: React,
-                LoginClass: Login,
-                RegisterClass: Register,
-                DeleteAccount: DeleteAccount
-            }
-        })
-    }
-
+    //funkcja sprawdzająca, który quiz został wybrany i ładująca odpowiedni
     SelectedQuiz(id) {
         if(id == 1){
             //alert(id)
@@ -410,6 +397,7 @@ class Quiz extends React.Component{
         }
     }
 
+    //funkcja zwracająca dostepne do rozwiązania quizy
     QuizsTails() {
         const quizs = this.state.quizsSelect.map(quizSelect => <QuizLoading key={quizSelect.key} SelectedQuiz={this.SelectedQuiz.bind(this)} quizSelect={quizSelect}/>)
         const quizsBcg = this.state.quizsSelect.map(quizSelect => <img className={'quizBcg'} key={quizSelect.key} src={quizSelect.bcgImage}/>)
@@ -423,34 +411,12 @@ class Quiz extends React.Component{
         )
     }
 
-    Account(img) {
-        const Login = () => {
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
-        }
-
-        return( 
-            <img src={img} onClick={Login} title={'Login/Register'}/>
-        )
-    }
-
-    Back() {
-        this.state.numberOfQuestion = 0
-        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
-    }
-
-    Loggout() {
-        localStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
-    }
-
-    Logged() {
-        localStorage.setItem('logged', JSON.stringify(true))
-    }
-
+    //powrót z ekranu rejestracji do ekranu logowania
     BackToLogin(){
         this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
     }
-
+    
+    //funkcja umożliwiająca przejście do ekranu rejestracji
     Register() {
         const loadRegister = () => {
             this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn', 'noDisplay')
@@ -461,42 +427,89 @@ class Quiz extends React.Component{
         )
     }
 
+    //możwośc powrotu do strony głównej
+    Back() {
+        this.state.numberOfQuestion = 0
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+    }
+
+    //funkcja umożliwiająca ustawienie zdjęcia konta dla niezalogowanego użytkownika i umożliwiająca przejście do ekranu logowania
+    Account(img) {
+        const Login = () => {
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
+        }
+
+        return( 
+            <img src={img} onClick={Login} title={'Login/Register'}/>
+        )
+    }
+
+    //funkcja ustawiająca kontener adekwatnie do statusu logowania użytkownika
     setContainerLogged() {
         this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
     }
 
-    getBoolean() {
+    //funkcja zwracająca status logowania użytkownika
+    getUserStatus() {
         let log = localStorage.getItem('logged')
         return JSON.parse(log)
     }
 
+    //wylogowanie
+    Loggout() {
+        localStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
+    //logowanie
+    Logged() {
+        localStorage.setItem('logged', JSON.stringify(true))
+    }
+
+    //funkcja pobierająca nick użytkownika przy poprawnym zalogowaniu
     getNick() {
         let nick = localStorage.getItem('nick')
         return nick
     } 
+
+    //funkcja umożliwiająca ustawianie klas dla kontenerów
+    SetClass(container, JS, HTML, CSS, React, Login, Register, DeleteAccount){
+        this.setState({
+            quizCssClass: {
+                containerClass: container,
+                JSClass: JS,
+                HTMLClass: HTML,
+                CSSClass: CSS,
+                ReactClass: React,
+                LoginClass: Login,
+                RegisterClass: Register,
+                DeleteAccount: DeleteAccount
+            }
+        })
+    }
 
     render(){
         let isLogged = this.state.logged
         return(
             <div>
                 <div className={this.state.quizCssClass.containerClass}>
-                        <header>
-                            <h1>{this.state.header}</h1>
-                            {isLogged ? <NavForLogged nick={this.state.nick} Loggout={this.Loggout} navElements={this.state.navElements}/> : this.Account(AccountImage)}
-                        </header>
-                        {this.QuizsTails()}
+                    <header>
+                        <h1>{this.state.header}</h1>
+                        {isLogged ? <NavForLogged nick={this.state.nick} Loggout={this.Loggout} navElements={this.state.navElements}/> : this.Account(AccountImage)}
+                    </header>
+                    {this.QuizsTails()}
                 </div>
                 <div className={this.state.quizCssClass.JSClass}>
-                    <JSQuiz Back={this.Back.bind(this)} Account={this.Account} bcgForAnswers={this.state.bcgForAnswers} JSQuestions={this.state.JSQuestions}/>
+                    <JSQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} JSQuestions={this.state.JSQuestions}/>
                 </div>
                 <div className={this.state.quizCssClass.HTMLClass}>
-                    <HTMLQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} HTMLQuestions={this.state.HTMLQuestions}/>
+                    <HTMLQuiz UpdateStats={this.UpdateStats} Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} HTMLQuestions={this.state.HTMLQuestions}/>
                 </div>
                 <div className={this.state.quizCssClass.CSSClass}>
-                    <CSSQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} CSSQuestions={this.state.CSSQuestions}/>
+                    <CSSQuiz UpdateStats={this.UpdateStats} Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} CSSQuestions={this.state.CSSQuestions}/>
                 </div>
                 <div className={this.state.quizCssClass.ReactClass}>
-                    <ReactQuiz Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} ReactQuestions={this.state.ReactQuestions}/>
+                    <ReactQuiz UpdateStats={this.UpdateStats} Back={this.Back.bind(this)} bcgForAnswers={this.state.bcgForAnswers} ReactQuestions={this.state.ReactQuestions}/>
                 </div>
                 <div className={this.state.quizCssClass.LoginClass}>
                     <Login logged={this.state.logged} Logged={this.Logged} Register={this.Register.bind(this)} Back={this.Back.bind(this)}/>

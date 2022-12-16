@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './quiz.css'
+import './style.css'
 import leftArrow from './img/leftArrow.png'
 
 const Login = props => {
@@ -9,6 +9,7 @@ const Login = props => {
     const [header, setHeader] = useState('')
     const [message, setMessage] = useState('')
 
+    //przejście do okna rejestracji
     const referForRegister = () => {
         const clearTheForm = () => {
             setLogin('')
@@ -20,7 +21,16 @@ const Login = props => {
             <span onClick={clearTheForm}>{props.Register()}</span>
         )
     }
-    
+
+    //funkcja wywołująca funkcje logowania i usuwająca zawartość loginu i hasła
+    const checkAccount = (e) => {
+        e.preventDefault()
+        loginUser(login, password)
+        setLogin('')
+        setPassword('')
+    }
+
+    //funkcja logująca użytkownika
     const loginUser = (username, password) => {
         fetch('http://localhost:8080/login', {
             method: 'POST',
@@ -34,12 +44,11 @@ const Login = props => {
             })
         }).then(function(response) {
             if(response.status === 200){
+                localStorage.setItem('nick', username)
+                localStorage.setItem('password', password)
                 props.Logged()
                 props.Back()
                 window.location.reload()
-                localStorage.setItem('nick', username)
-                localStorage.setItem('password', password)
-                getID()
             }else{
                 setAlert('failure', "User don't exist!", "Wrong password or username.")
             }
@@ -48,31 +57,26 @@ const Login = props => {
         })
     }
 
-    const getID =() => {
-        let nick = localStorage.getItem('nick')
+    //funkcja pobierająca id i statystyki z bazy danych
+    const setID = () => {
+        const getNick = () => {
+            const nick = localStorage.getItem('nick')
+            return nick
+        }
+        const username = getNick()
         fetch('http://localhost:8080/users')
         .then(res => res.json())
         .then(data => data.map(d => {
-            if(nick == d.username){
-                localStorage.setItem('ID', JSON.stringify(d.id))
+            if(username === d.username){
+                localStorage.setItem('ID', '')
+                localStorage.setItem('ID', d.id)
             }
         }))
         .catch(err => console.log(err))
     }
 
-    const setAlert = (alert, header, message) => {
-        setAlertClass(alert)
-        setHeader(header)
-        setMessage(message)
-    }
 
-    const checkAccount = (e) => {
-        e.preventDefault()
-        loginUser(login, password)
-        setLogin('')
-        setPassword('')
-    }
-
+    //strzałka, która cofa do głownego ekranu po naciśnięciu
     function Arrow() {
         const backToMainWeb = () => {
             setLogin('')
@@ -82,12 +86,20 @@ const Login = props => {
         }
 
         return(
-            <img onClick={backToMainWeb} src={leftArrow} className={'arrow'}/>
+            <img onClick={backToMainWeb} src={leftArrow} als='arrow' className={'arrow'}/>
         )
+    }
+
+    //funkcja służąca do ustawienia odpowiedniego komunikatu
+    const setAlert = (alert, header, message) => {
+        setAlertClass(alert)
+        setHeader(header)
+        setMessage(message)
     }
 
     return(
         <div>
+            {setID()}
             <header>
                 <h1>Sign in</h1>
             </header>    

@@ -319,6 +319,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column nowrap;
     margin-top: 1rem;
     padding: 2rem;
     width: 46em;
@@ -331,11 +332,12 @@ h2{
     box-shadow: 0px 0px 29px -5px rgba(66, 68, 90, 1);
 }
 
+/*strzałka do cofania quizu*/
 .endQuizOn .arrow{
     display: flex;
     position: relative;
-    top: -14.19rem;
-    left: -8.05rem;
+    top: -6rem;
+    left: -20rem;
     z-index: 1;
 }
 
@@ -343,6 +345,47 @@ h2{
 .endQuizOn p{
     font-size: 2rem;
     letter-spacing: 2px;
+}
+
+/*przycisk do zakończenia quizu*/
+.endQuizOn button {
+    background-color: #f7e018;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 2rem;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-top: 6rem;
+    z-index: 1;
+}
+
+.endQuizOn button:hover {
+    transform: translateY(8px)
+}
+
+.endQuizOn button:active {
+    transform: translateY(16px)
+}
+
+.endQuizOn .endBcg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 4rem;
+    background-color: #c5b218;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-top: -3.2rem;
 }
 
 /*HTML Quiz*/
@@ -493,6 +536,15 @@ h2{
     background-color: #B63D1E;
 }
 
+.HTMLSelectedOn .endQuizOn button{
+    background-color: #e44d26;
+}
+
+.HTMLSelectedOn .endQuizOn .endBcg{
+    background-color: #B63D1E;
+}
+
+/*CSS Quiz*/
 .CSSSelectedOn{
     display: flex;
     justify-content: center;
@@ -638,6 +690,14 @@ h2{
     border-radius: 2rem;
     cursor: pointer;
     background-color: #1e3db6 ;
+}
+
+.CSSSelectedOn .endQuizOn button{
+    background-color: #264de4;
+}
+
+.CSSSelectedOn .endQuizOn .endBcg{
+    background-color: #1e3db6;
 }
 
 /*React Quiz*/
@@ -786,6 +846,14 @@ h2{
     border-radius: 2rem;
     cursor: pointer;
     background-color: #00ACCC ;
+}
+
+.ReactSelectedOn .endQuizOn button{
+    background-color: #00d8ff;
+}
+
+.ReactSelectedOn .endQuizOn .endBcg{
+    background-color: #00ACCC;
 }
 
 /*okno logowania*/
@@ -1029,8 +1097,8 @@ form span:hover{
     background-color: #8CADD5;
 }
 
-/*formularz usuwania konta*/
-.deleteForm{
+/*tło elementów po ich wyborze*/
+.bcgForNavElements{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1044,33 +1112,167 @@ form span:hover{
     z-index: 2;
 }
 
-.deleteForm p{
-    position: absolute;
-    font-size: 1.2rem;
-    top: 14rem;
+/*zmiana avatara*/
+.saveAvatarButton{
+    background-color: #1a5bab !important;
+    margin-top: 2.6rem;
+}
+
+.preview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1rem;
+    left: 7.6rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+/*statystyki*/
+.photo{
+    display: flex;
+    position: relative;
+    left: -13rem;
+    top: 2rem;
+    width: 250px;
+    height: 250px;
+    border-radius: 10rem !important;
+    cursor: default;
+}
+
+.bcgForNavElements span{
+    display: flex;
+    position: relative;
+    top: -6rem;
+    left: 2rem;
+    font-size: 2rem;
     color: #e5e9f8;
 }
 
-.deleteForm input{
+.bcgForNavElements div{
+    color: #e5e9f8;
+}
+
+.quizzesPlayed{
+    display: flex;
+    position: relative;
+    top: -5rem;
+    left: 2.2rem;
+}
+
+.quizzesPlayed p{
+    position: relative;
+    top: 1rem;
+    left: -7.3rem;
+}
+
+.correctAnswers{
+    display: flex;
+    position: relative;
+    top: -8.8rem;
+    left: 18rem;
+}
+
+.correctAnswers p{
+    position: relative;
+    top: 1rem;
+    left: -7.9rem;
+}
+
+.uncorrectAnswers{
+    display: flex;
+    position: relative;
+    top: -3.4rem;
+    left: 2.2rem;
+}
+
+.uncorrectAnswers p{
+    position: relative;
+    top: 1rem;
+    left: -9.1rem;
+}
+
+.ratio{
+    display: flex;
+    position: relative;
+    top: -7.2rem;
+    left: 18rem;
+}
+
+.ratio p{
+    position: relative;
+    top: 1rem;
+    left: -2em;
+}
+
+/*formularz zmiany hasła*/
+.changePassword .position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;;
+    width: 36rem;
+}
+
+.changePassword input{
+    width: 13rem;
+    border: 3px solid #1a5bab;
+    background-color: #BACDE5;
+}
+
+.changePassword button{
+    width: 18rem;
+    background-color: #1a5bab;
+}
+
+.changePassword button:hover{
+    background-color: #144888;
+}
+
+/*formularz usuwania konta*/
+.bcgForNavElements p{
+    position: relative;
+    font-size: 1.2rem;
+    top: 0rem;
+    color: #e5e9f8;
+}
+
+.deleteAccount form{
+    position: relative;
+    top: 2rem;
+}
+
+.bcgForNavElements input{
     background-color: #DB9798;
     border: 3px solid #b83032;
 }
 
-
-.deleteForm input::placeholder{
+.bcgForNavElements input::placeholder{
     color: #e5e9f8;
     
 }
 
-.deleteForm button{
+.bcgForNavElements button{
     background-color: #b83032;
 }
 
-.deleteForm button:hover{
+.bcgForNavElements button:hover{
     background-color: #932628;
 }
 
-.deleteForm img{
+.bcgForNavElements img{
     box-shadow: none;
     border-radius: 0;
+}
+
+.bcgForNavElements .failure{
+
+}
+
+.bcgForNavElements .failure p{
+    color: #7e555a;
+    position: relative;
+    top: 1rem;
+    font-size: 1rem;
 }

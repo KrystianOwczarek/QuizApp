@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './quiz.css'
+import './style.css'
 import leftArrow from './img/leftArrow.png'
 
 const Register = props => {
@@ -10,26 +10,22 @@ const Register = props => {
     const [header, setHeader] = useState('')
     const [message, setMessage] = useState('')
 
-    const setAlert = (alert, header, message) => {
-        setAlertClass(alert)
-        setHeader(header)
-        setMessage(message)
-    }
-   
-    const backForRegister = () => {
-        setLogin('')
-        setPassword('')
-        setConfirmPassword('')
-        props.BackToLogin()
-        setAlertClass('noDisplay')
-    }
-
-    function Arrow() {
-        return(
-            <img onClick={backForRegister} src={leftArrow} className={'arrow'}/>
-        )
+    //warunki, które muszą zostać spełnione aby była możliwa rejestracja
+    const createAccount = (e) => {
+        e.preventDefault()
+        if(password == confirmPassword && login.length >= 4 && password.length >= 6){
+            registerUser(login, password)
+            setLogin('')
+            setPassword('')
+            setConfirmPassword('')
+        }else if(password != confirmPassword){
+            setAlert('failure', "User don't created!", "Password don't confirmed.")
+        }else{
+            setAlert('failure', "User don't created!", 'Too short login or password.')
+        }
     }
 
+    //funkcja odpowiadająca za rejestracje użytkownika
     const registerUser = (username, password) => {
         fetch('http://localhost:8080/users',{
             method: 'POST',
@@ -52,18 +48,26 @@ const Register = props => {
         })
     }
 
-    const createAccount = (e) => {
-        e.preventDefault()
-        if(password == confirmPassword && login.length >= 4 && password.length >= 6){
-            registerUser(login, password)
-            setLogin('')
-            setPassword('')
-            setConfirmPassword('')
-        }else if(password != confirmPassword){
-            setAlert('failure', "User don't created!", "Password don't confirmed.")
-        }else{
-            setAlert('failure', "User don't created!", 'Too short login or password.')
-        }
+    //strzałka powrotu
+    function Arrow() {
+        return(
+            <img onClick={backForRegister} src={leftArrow} className={'arrow'}/>
+        )
+    }
+    
+    const setAlert = (alert, header, message) => {
+        setAlertClass(alert)
+        setHeader(header)
+        setMessage(message)
+    }
+
+    //funkcja powrotu do ekranu logowania
+    const backForRegister = () => {
+        setLogin('')
+        setPassword('')
+        setConfirmPassword('')
+        props.BackToLogin()
+        setAlertClass('noDisplay')
     }
 
     return(
