@@ -9,13 +9,23 @@ html {
 }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -29,15 +39,30 @@ html {
 header {
   width: 100%;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: #e5e9f8;
   text-shadow: 0px 6px 4px #42445a;
@@ -45,6 +70,8 @@ header h1 {
 }
 
 header img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 2rem;
@@ -53,17 +80,27 @@ header img {
   height: 2.6rem;
   cursor: pointer;
   border-radius: 2rem;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   -webkit-box-shadow: 0px 0px 38px -9px #42445a;
-  -moz-box-shadow: 0px 0px 38px -9px #42445a;
   box-shadow: 0px 0px 38px -9px #42445a;
   z-index: 1;
 }
 
 .selectionBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
   flex-flow: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -73,31 +110,43 @@ header img {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 24px 1px #42445a;
-  -moz-box-shadow: 0px 0px 24px 1px #42445a;
   box-shadow: 0px 0px 24px 1px #42445a;
 }
 
 .selectionBox div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
   margin-top: 2.8rem;
 }
 
 .quizImages {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 2rem;
   width: auto;
   height: 4rem;
   cursor: pointer;
   z-index: 1;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
 }
 
 .quizImages:hover {
+  -webkit-transform: translate(2px, 4px);
+  -ms-transform: translate(2px, 4px);
   transform: translate(2px, 4px);
 }
 
 .quizImages:active {
+  -webkit-transform: translate(4px, 8px);
+  -ms-transform: translate(4px, 8px);
   transform: translate(4px, 8px);
 }
 
@@ -105,8 +154,14 @@ header img {
   position: relative;
   top: -10.4rem;
   left: 0.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 2rem;
   width: auto;
@@ -122,8 +177,14 @@ header img {
 }
 
 .JSSelectedOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -133,13 +194,24 @@ header img {
 .header {
   width: 100%;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: 0.4rem;
@@ -150,8 +222,14 @@ header img {
 }
 
 .header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: #000000;
   text-shadow: 0px 6px 4px #42445a;
@@ -167,9 +245,18 @@ h2 {
 
 /*JavaScript Quiz*/
 .JSBoxStartOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -179,14 +266,19 @@ h2 {
   background-color: #e5e9f8;
   z-index: -1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 /*przycisk start*/
 .JSBoxStartOn button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -197,23 +289,35 @@ h2 {
   font-size: 1.4rem;
   letter-spacing: 4px;
   cursor: pointer;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-top: 6rem;
   z-index: 1;
 }
 
 .JSBoxStartOn button:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .JSBoxStartOn button:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 /*tło startu(element efektu wciskania przycisku)*/
 .JSBoxStartOn .buttonBcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -235,9 +339,18 @@ h2 {
 
 /*pojemnik na quizy*/
 .JSBoxQuizOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -247,12 +360,13 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 /*licznik*/
 .JSBoxQuizOn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -1.6rem;
@@ -263,9 +377,18 @@ h2 {
 /*pozycjonowanie odpowiedzi*/
 .JSBoxQuizOn .answersPosition {
   margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 55%;
@@ -273,8 +396,14 @@ h2 {
 
 /*odpowiedzi*/
 .JSBoxQuizOn .answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   width: 18rem;
@@ -284,21 +413,33 @@ h2 {
   cursor: pointer;
   background-color: #f7e018;
   z-index: 1;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
 }
 
 .JSBoxQuizOn .answer:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .JSBoxQuizOn .answer:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 /*tła odpowiedzi(element efektu naciskania guzika)*/
 .JSBoxQuizOn .answersPosition .bcgForAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   left: -41.625rem;
@@ -317,9 +458,18 @@ h2 {
 }
 
 .endQuizOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   margin-top: 1rem;
   padding: 2rem;
@@ -329,12 +479,13 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 /*strzałka do cofania quizu*/
 .endQuizOn .arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -6rem;
@@ -351,8 +502,14 @@ h2 {
 /*przycisk do zakończenia quizu*/
 .endQuizOn button {
   background-color: #f7e018;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -362,22 +519,34 @@ h2 {
   font-size: 1.4rem;
   letter-spacing: 4px;
   cursor: pointer;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-top: 6rem;
   z-index: 1;
 }
 
 .endQuizOn button:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .endQuizOn button:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .endQuizOn .endBcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -391,8 +560,14 @@ h2 {
 
 /*HTML Quiz*/
 .HTMLSelectedOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -400,9 +575,18 @@ h2 {
 }
 
 .HTMLBoxStartOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -412,14 +596,19 @@ h2 {
   background-color: #e5e9f8;
   z-index: -1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .HTMLBoxStartOn button {
   /*start*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -430,22 +619,34 @@ h2 {
   font-size: 1.4rem;
   letter-spacing: 4px;
   cursor: pointer;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-top: 6rem;
   z-index: 1;
 }
 
 .HTMLBoxStartOn button:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .HTMLBoxStartOn button:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .HTMLBoxStartOn .buttonBcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -466,9 +667,18 @@ h2 {
 }
 
 .HTMLBoxQuizOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -478,11 +688,12 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .HTMLBoxQuizOn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -0.6rem;
@@ -492,17 +703,32 @@ h2 {
 
 .HTMLBoxQuizOn .answersPosition {
   margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 55%;
 }
 
 .HTMLBoxQuizOn .answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   width: 18rem;
@@ -512,20 +738,32 @@ h2 {
   cursor: pointer;
   background-color: #e44d26;
   z-index: 1;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
 }
 
 .HTMLBoxQuizOn .answer:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .HTMLBoxQuizOn .answer:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .HTMLBoxQuizOn .answersPosition .bcgForAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   left: -41.625rem;
@@ -548,8 +786,14 @@ h2 {
 
 /*CSS Quiz*/
 .CSSSelectedOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -557,9 +801,18 @@ h2 {
 }
 
 .CSSBoxStartOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -569,14 +822,19 @@ h2 {
   background-color: #e5e9f8;
   z-index: -1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .CSSBoxStartOn button {
   /*start*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -587,22 +845,34 @@ h2 {
   font-size: 1.4rem;
   letter-spacing: 4px;
   cursor: pointer;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-top: 6rem;
   z-index: 1;
 }
 
 .CSSBoxStartOn button:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .CSSBoxStartOn button:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .CSSBoxStartOn .buttonBcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -623,9 +893,18 @@ h2 {
 }
 
 .CSSBoxQuizOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -635,11 +914,12 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .CSSBoxQuizOn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -0.6rem;
@@ -649,17 +929,32 @@ h2 {
 
 .CSSBoxQuizOn .answersPosition {
   margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 55%;
 }
 
 .CSSBoxQuizOn .answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   width: 18rem;
@@ -669,20 +964,32 @@ h2 {
   cursor: pointer;
   background-color: #264de4;
   z-index: 1;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
 }
 
 .CSSBoxQuizOn .answer:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .CSSBoxQuizOn .answer:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .CSSBoxQuizOn .answersPosition .bcgForAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   left: -41.625rem;
@@ -705,8 +1012,14 @@ h2 {
 
 /*React Quiz*/
 .ReactSelectedOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -714,9 +1027,18 @@ h2 {
 }
 
 .ReactBoxStartOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -726,14 +1048,19 @@ h2 {
   background-color: #e5e9f8;
   z-index: -1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .ReactBoxStartOn button {
   /*start*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -744,22 +1071,34 @@ h2 {
   font-size: 1.4rem;
   letter-spacing: 4px;
   cursor: pointer;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-top: 6rem;
   z-index: 1;
 }
 
 .ReactBoxStartOn button:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .ReactBoxStartOn button:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .ReactBoxStartOn .buttonBcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 15rem;
   height: 4rem;
@@ -780,9 +1119,18 @@ h2 {
 }
 
 .ReactBoxQuizOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -792,11 +1140,12 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
 .ReactBoxQuizOn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -0.6rem;
@@ -806,17 +1155,32 @@ h2 {
 
 .ReactBoxQuizOn .answersPosition {
   margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 55%;
 }
 
 .ReactBoxQuizOn .answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   width: 18rem;
@@ -826,20 +1190,32 @@ h2 {
   cursor: pointer;
   background-color: #00d8ff;
   z-index: 1;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
   transition: all .2s ease;
 }
 
 .ReactBoxQuizOn .answer:hover {
+  -webkit-transform: translateY(8px);
+  -ms-transform: translateY(8px);
   transform: translateY(8px);
 }
 
 .ReactBoxQuizOn .answer:active {
+  -webkit-transform: translateY(16px);
+  -ms-transform: translateY(16px);
   transform: translateY(16px);
 }
 
 .ReactBoxQuizOn .answersPosition .bcgForAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   left: -41.625rem;
@@ -862,9 +1238,18 @@ h2 {
 
 /*okno logowania*/
 .loginOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -872,9 +1257,18 @@ h2 {
 }
 
 .loginBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -884,7 +1278,6 @@ h2 {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
@@ -895,16 +1288,31 @@ h2 {
 }
 
 form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 0.2rem;
 }
 
 form input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 0.5rem;
   width: 12rem;
@@ -918,8 +1326,14 @@ form input {
 }
 
 form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 1rem;
   width: 12rem;
@@ -932,6 +1346,8 @@ form button {
   background-color: #1a5bab;
   color: #e5e9f8;
   cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   font-family: 'Fredoka One', cursive;
 }
@@ -959,9 +1375,18 @@ form span:hover {
 
 /*okno rejestracja*/
 .registerOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -969,9 +1394,18 @@ form span:hover {
 }
 
 .registerBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 1rem;
   padding: 2rem;
@@ -981,7 +1415,6 @@ form span:hover {
   background-color: #e5e9f8;
   z-index: 1;
   -webkit-box-shadow: 0px 0px 29px -5px #42445a;
-  -moz-box-shadow: 0px 0px 29px -5px #42445a;
   box-shadow: 0px 0px 29px -5px #42445a;
 }
 
@@ -1043,9 +1476,18 @@ form span:hover {
 
 /*nawigacja dla zalogowanych*/
 .navForLoged {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
   position: absolute;
   top: 4.8rem;
@@ -1055,6 +1497,8 @@ form span:hover {
   border-radius: 1.4rem;
   background-color: #5E8CC4;
   z-index: 2;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -1062,10 +1506,13 @@ form span:hover {
   position: relative;
   top: -0.5rem;
   right: 8.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 3rem;
   height: 3rem;
   border-radius: 2rem;
+  -webkit-box-shadow: none;
   box-shadow: none;
   cursor: default;
 }
@@ -1079,14 +1526,22 @@ form span:hover {
 }
 
 .navForLoged div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 4rem;
   color: #e5e9f8;
   border-top: 1px solid #e5e9f8;
   cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   font-size: 1rem;
 }
@@ -1103,8 +1558,14 @@ form span:hover {
 
 /*tło elementów po ich wyborze*/
 .bcgForNavElements {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -1112,6 +1573,7 @@ form span:hover {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 2;
 }
@@ -1123,8 +1585,14 @@ form span:hover {
 }
 
 .preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   top: 1rem;
@@ -1135,6 +1603,8 @@ form span:hover {
 
 /*statystyki*/
 .photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   left: -13rem;
@@ -1146,6 +1616,8 @@ form span:hover {
 }
 
 .bcgForNavElements span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -6rem;
@@ -1159,6 +1631,8 @@ form span:hover {
 }
 
 .quizzesPlayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -5rem;
@@ -1172,6 +1646,8 @@ form span:hover {
 }
 
 .correctAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -8.8rem;
@@ -1185,6 +1661,8 @@ form span:hover {
 }
 
 .uncorrectAnswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -3.4rem;
@@ -1198,6 +1676,8 @@ form span:hover {
 }
 
 .ratio {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -7.2rem;
@@ -1212,8 +1692,14 @@ form span:hover {
 
 /*formularz zmiany hasła*/
 .changePassword .position {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 20px;
   width: 36rem;
@@ -1252,6 +1738,22 @@ form span:hover {
   border: 3px solid #b83032;
 }
 
+.bcgForNavElements input::-webkit-input-placeholder {
+  color: #e5e9f8;
+}
+
+.bcgForNavElements input::-moz-placeholder {
+  color: #e5e9f8;
+}
+
+.bcgForNavElements input:-ms-input-placeholder {
+  color: #e5e9f8;
+}
+
+.bcgForNavElements input::-ms-input-placeholder {
+  color: #e5e9f8;
+}
+
 .bcgForNavElements input::placeholder {
   color: #e5e9f8;
 }
@@ -1265,6 +1767,7 @@ form span:hover {
 }
 
 .bcgForNavElements img {
+  -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
 }
