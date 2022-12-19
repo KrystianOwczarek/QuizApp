@@ -127,7 +127,10 @@ const Login = props => {
                     {referForRegister()}
                 </form>
             </div>
-            <div className={alertClass}><h3>{header}</h3><p>{message}</p></div>
+            <div className={alertClass}>
+                <h3>{header}</h3>
+                <p>{message}</p>
+            </div>
         </div>
     )
 }

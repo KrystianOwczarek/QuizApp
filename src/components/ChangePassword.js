@@ -18,10 +18,10 @@ const ChangePassword = props => {
             if(newPassword == confirmNewPassword){
                 changePassword()
             }else{
-                console.log('password not confirmed')
+                setAlert('failure', 'Wrong confirmation password!', 'Enter the correct confirmation password.')
             }
         }else{
-            console.log('bad old password')
+            setAlert('failure', 'Wrong current password!', 'Enter the correct password.')
         }
     }
 
@@ -53,6 +53,14 @@ const ChangePassword = props => {
         return id
     }
 
+    const endChange = () => {
+        setAlertClass('noDisplay')
+        setCurrentPassword('')
+        setNewPassword('')
+        setConfirmNewPassword('')
+        props.endChange()
+    }
+
     //funkcja odpowiadająca za ustawienie odpowiedniego komunikatu
     const setAlert = (alert, header, text) => {
         setAlertClass(alert)
@@ -62,7 +70,7 @@ const ChangePassword = props => {
 
     return(
         <div className={'changePassword'}>
-            <img src={X} onClick={props.endChange}/>
+            <img src={X} onClick={endChange}/>
             <div className={'position'}><p>Enter your current password, set a new password and confirm.</p></div>
             <form onSubmit={confirmChange}>
                 <input

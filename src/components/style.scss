@@ -236,10 +236,11 @@ header img{
 }
 
 h2{
-    margin-top: 1.6rem;
+    position: absolute;
+    margin-top: 5rem;
     font-size: 1.8rem;
     text-align: center;
-    width: 90%;
+    width: 38rem;
 }
 
 /*JavaScript Quiz*/
@@ -291,7 +292,7 @@ h2{
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
-    margin-top: 6rem;
+    margin-top: 12rem;
     z-index: 1;
 }
 
@@ -375,7 +376,7 @@ h2{
 
 /*pozycjonowanie odpowiedzi*/
 .JSBoxQuizOn .answersPosition{
-    margin-top: 1rem;
+    margin-top: 7rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -620,7 +621,7 @@ h2{
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
-    margin-top: 6rem;
+    margin-top: 12rem;
     z-index: 1;
 }
 
@@ -700,7 +701,7 @@ h2{
 }
 
 .HTMLBoxQuizOn .answersPosition{
-    margin-top: 1rem;
+    margin-top: 7rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -845,7 +846,7 @@ h2{
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
-    margin-top: 6rem;
+    margin-top: 12rem;
     z-index: 1;
 }
 
@@ -925,7 +926,7 @@ h2{
 }
 
 .CSSBoxQuizOn .answersPosition{
-    margin-top: 1rem;
+    margin-top: 7rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1070,7 +1071,7 @@ h2{
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
-    margin-top: 6rem;
+    margin-top: 12rem;
     z-index: 1;
 }
 
@@ -1150,7 +1151,7 @@ h2{
 }
 
 .ReactBoxQuizOn .answersPosition{
-    margin-top: 1rem;
+    margin-top: 7rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1637,8 +1638,8 @@ form span:hover{
 
 .quizzesPlayed p{
     position: relative;
-    top: 1rem;
-    left: -7.3rem;
+    top: 1rem !important;
+    left: -7.3rem !important;
 }
 
 .correctAnswers{
@@ -1652,8 +1653,8 @@ form span:hover{
 
 .correctAnswers p{
     position: relative;
-    top: 1rem;
-    left: -7.9rem;
+    top: 1rem !important;
+    left: -7.9rem !important;
 }
 
 .uncorrectAnswers{
@@ -1667,8 +1668,8 @@ form span:hover{
 
 .uncorrectAnswers p{
     position: relative;
-    top: 1rem;
-    left: -9.1rem;
+    top: 1rem !important;
+    left: -9.1rem !important;
 }
 
 .ratio{
@@ -1682,8 +1683,8 @@ form span:hover{
 
 .ratio p{
     position: relative;
-    top: 1rem;
-    left: -2em;
+    top: 1rem !important;
+    left: -2em !important;
 }
 
 /*formularz zmiany hasła*/
@@ -1703,30 +1704,52 @@ form span:hover{
 
 .changePassword input{
     width: 13rem;
-    border: 3px solid #1a5bab;
-    background-color: #BACDE5;
+    border: 3px solid #1a5bab !important;
+    background-color: #BACDE5 !important;
 }
 
 .changePassword button{
     width: 18rem;
-    background-color: #1a5bab;
+    background-color: #1a5bab !important;
 }
 
 .changePassword button:hover{
-    background-color: #144888;
+    background-color: #144888 !important;
+}
+
+.changePassword .success{
+    margin-top: 2rem !important;
+    margin-left: 8rem !important;
+}
+
+.changePassword .success p{
+    position: relative;
+    top: 0.2rem;
+    font-size: 1rem;
+    color: #48664f;
+}
+
+.changePassword .failure{
+    margin-top: 2rem !important;
+    margin-left: 8rem !important;
+}
+
+.changePassword .failure p{
+    position: relative;
+    top: -0.2rem !important;
 }
 
 /*formularz usuwania konta*/
 .bcgForNavElements p{
     position: relative;
     font-size: 1.2rem;
-    top: 0rem;
+    top: -3rem;
     color: #e5e9f8;
 }
 
 .deleteAccount form{
     position: relative;
-    top: 2rem;
+    top: -2rem;
 }
 
 .bcgForNavElements input{
@@ -1774,12 +1797,13 @@ form span:hover{
 }
 
 .bcgForNavElements .failure{
-
+    margin-top: 0rem;
+    margin-left: 5.2rem;
 }
 
 .bcgForNavElements .failure p{
     color: #7e555a;
     position: relative;
-    top: 1rem;
+    top: 0.2rem;
     font-size: 1rem;
 }
