@@ -4,11 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Start Application
 
-1. Add "Registration" to IntelliJ IDEA and run "RegistrationApplication".
-2. Add "QuizApp" to Visual Studio Code, run terminal, enter npm install react-scripts --save and enter run npm start.
-3. Register your account.
-4. Login to your account.
-5. Have fun with application.
+1. Import data base to MySQL Workbench.
+2. Add "Registration" to IntelliJ IDEA and run "RegistrationApplication".
+3. Add "QuizApp" to Visual Studio Code, run terminal, enter npm install react-scripts --save and enter run npm start.
+4. Register your account.
+5. Login to your account.
+6. Have fun with application.
 
 ## Available Scripts
 
