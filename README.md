@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Start Application
+
+1. Add "Registration" to IntelliJ IDEA and run "RegistrationApplication".
+2. Add "QuizApp" to Visual Studio Code, run terminal, enter npm install react-scripts --save and enter run npm start.
+3. Register your account.
+4. Login to your account.
+5. Have fun with application.
+
 ## Available Scripts
 
 In the project directory, you can run:
