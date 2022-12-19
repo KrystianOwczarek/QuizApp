@@ -18,29 +18,61 @@ const JSQuiz = props => {
     const [uncorrectFromDb, setUncorrectFromDb] = useState('')
     let QuestNumber = numberOfQuestion + 1;
 
-    //funkcja aktualizująca statystyki użytkownika w bazie danych
-    const updateStats = () => {
-        const id = getID()
-        fetch(`http://localhost:8080/stats/${id}`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                quizzes_played: quizzesFromDb + quizzes,
-                correct_answers: correctFromDb + correct,
-                uncorrect_answers: uncorrectFromDb + uncorrect,
-            })
-        }).then(function(response) {
-            if(response.status === 200){
-                console.log('ok')
-            }
-        }).catch(function(error) {
-            console.log('error')
-        })
-        window.location.reload()
+    //funkcja odpowiadająca za resetowanie statystyk i powrót do ekranu głownego
+    const resetQuestion = () => {
+        setNumberOfQuestion(0)
+        setHowManyCorrect([])
+        setJSBoxStartClass('JSBoxStartOn')
+        setJSBoxQuizClass('JSBoxQuizOff')
+        setEndQuiz('endQuizOff')
+        props.Back()
     }
+
+    //strzałka odpowiadająca za powrót
+    function Arrow() {
+        return(
+            <img onClick={resetQuestion} src={leftArrow} className={'arrow'}/>
+        )
+    }
+
+    //funkcja ładująca pytania po naciśnięciu przycisku
+    const startQuiz = () => {
+        setJSBoxStartClass('JSBoxStartOff')
+        setJSBoxQuizClass('JSBoxQuizOn')
+    }
+
+    //funkcja sprawdzająca odpowiedź
+    function checkCorrect(correct) {
+        if(correct == true){
+            howManyCorrect.push(correct)
+        }
+    }
+
+    //funkcja przełączająca pytanie po odpowiedzi
+    function nextQuestion(correct) {
+        let length = props.JSQuestions.allAnswers.length
+        let i = numberOfQuestion + 1
+        if(i == length){
+            i=0
+            setJSBoxQuizClass('JSBoxQuizOff')
+            setEndQuiz('endQuizOn')
+        }
+        setNumberOfQuestion(i)
+        checkCorrect(correct)
+    }
+
+     //funkcja pobierająca id zalogowanego użytkownika
+     const getID = () => {
+        const id = localStorage.getItem('ID')
+        return id
+    }
+
+    //efekt polegający na podliczaniu statystyk
+    useEffect(() => {
+        setCorrect(howManyCorrect.length)
+        let uncorrect = 10 - howManyCorrect.length
+        setUncorrect(uncorrect)
+    })
 
     //funkcja pobierająca statystyki użytkownika z bazy danych
     const statsFromDb = () => {
@@ -64,60 +96,28 @@ const JSQuiz = props => {
         ).catch(err => console.log('error'))
     }
 
-    //efekt polegający na podliczaniu statystyk
-    useEffect(() => {
-        setCorrect(howManyCorrect.length)
-        let uncorrect = 10 - howManyCorrect.length
-        setUncorrect(uncorrect)
-    })
-
-    //funkcja pobierająca id zalogowanego użytkownika
-    const getID = () => {
-        const id = localStorage.getItem('ID')
-        return id
-    }
-
-    //funkcja przełączająca pytanie po odpowiedzi
-    function nextQuestion(correct) {
-        let length = props.JSQuestions.allAnswers.length
-        let i = numberOfQuestion + 1
-        if(i == length){
-            i=0
-            setJSBoxQuizClass('JSBoxQuizOff')
-            setEndQuiz('endQuizOn')
-        }
-        setNumberOfQuestion(i)
-        checkCorrect(correct)
-    }
-
-    //funkcja sprawdzająca odpowiedź
-    function checkCorrect(correct) {
-        if(correct == true){
-            howManyCorrect.push(correct)
-        }
-    }
-
-    //funkcja ładująca pytania po naciśnięciu przycisku
-    const startQuiz = () => {
-        setJSBoxStartClass('JSBoxStartOff')
-        setJSBoxQuizClass('JSBoxQuizOn')
-    }
-
-     //strzałka odpowiadająca za powrót
-     function Arrow() {
-        return(
-            <img onClick={resetQuestion} src={leftArrow} className={'arrow'}/>
-        )
-    }
-
-    //funkcja odpowiadająca za resetowanie statystyk i powrót do ekranu głownego
-    const resetQuestion = () => {
-        setNumberOfQuestion(0)
-        setHowManyCorrect([])
-        setJSBoxStartClass('JSBoxStartOn')
-        setJSBoxQuizClass('JSBoxQuizOff')
-        setEndQuiz('endQuizOff')
-        props.Back()
+    //funkcja aktualizująca statystyki użytkownika w bazie danych
+    const updateStats = () => {
+        const id = getID()
+        fetch(`http://localhost:8080/stats/${id}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quizzes_played: quizzesFromDb + quizzes,
+                correct_answers: correctFromDb + correct,
+                uncorrect_answers: uncorrectFromDb + uncorrect,
+            })
+        }).then(function(response) {
+            if(response.status === 200){
+                console.log('ok')
+            }
+        }).catch(function(error) {
+            console.log('error')
+        })
+        window.location.reload()
     }
 
     return(

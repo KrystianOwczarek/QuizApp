@@ -7,13 +7,9 @@ const ChangeAvatar = props => {
     const [src] = useState(null)
     const [preview, setPreview] = useState(null)
 
-    //warunek odpowiadający za wyświetlanie się odpowiedniego zdjęcia
-    const ifPreviewIsNull = () => {
-        if(preview == null){
-            return AvatarPhoto
-        }else{
-            return preview
-        }
+    const getID = () => {
+        const id = localStorage.getItem('ID')
+        return id
     }
 
     //funkcja usuwająca podgląd zdjęcia po jego zamknięciu
@@ -48,9 +44,13 @@ const ChangeAvatar = props => {
         })
     }
 
-    const getID = () => {
-        const id = localStorage.getItem('ID')
-        return id
+    //warunek odpowiadający za wyświetlanie się odpowiedniego zdjęcia
+    const ifPreviewIsNull = () => {
+        if(preview == null){
+            return AvatarPhoto
+        }else{
+            return preview
+        }
     }
 
     return (

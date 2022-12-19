@@ -5,25 +5,11 @@ const DeleteAccount = props => {
     const [inscribedPassword, setInscribedPassword] = useState('')
     const [deleteFailureClass, setDeleteFailureClass] = useState('noDisplay')
 
-    //cofnięcie do ekranu głównego
-    const endDeleted = () => {
-        setDeleteFailureClass('noDisplay')
-        setInscribedPassword('')
-        props.endDeleted()
+     //pobieramy id
+     const getID = () => {
+        const id = localStorage.getItem('ID')
+        return JSON.parse(id)
     }
-
-    //funkcja sprawdzająca czy hasło wpisane jest zgodne z przypisanym do konta
-    const deleteAccount = (e) => {
-        e.preventDefault()
-        let truePassword = localStorage.getItem('password')
-
-        if(truePassword == inscribedPassword){
-            deleteById()
-            props.Loggout()
-        }else{
-            setDeleteFailureClass('failure')
-        }
-    } 
 
     //funkcja usuwająca konto po id
     const deleteById = () => {
@@ -38,10 +24,24 @@ const DeleteAccount = props => {
         }).then(res => res).catch(err => err)
     }
 
-    //pobieramy id
-    const getID = () => {
-        const id = localStorage.getItem('ID')
-        return JSON.parse(id)
+    //funkcja sprawdzająca czy hasło wpisane jest zgodne z przypisanym do konta
+    const deleteAccount = (e) => {
+        e.preventDefault()
+        let truePassword = localStorage.getItem('password')
+
+        if(truePassword == inscribedPassword){
+            deleteById()
+            props.Loggout()
+        }else{
+            setDeleteFailureClass('failure')
+        }
+    }
+
+    //cofnięcie do ekranu głównego
+    const endDeleted = () => {
+        setDeleteFailureClass('noDisplay')
+        setInscribedPassword('')
+        props.endDeleted()
     }
 
     return(

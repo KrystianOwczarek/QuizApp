@@ -9,6 +9,26 @@ const ChangePassword = props => {
     const [header, setHeader] = useState('')
     const [text, setText] = useState('')
 
+    const endChange = () => {
+        setAlertClass('noDisplay')
+        setCurrentPassword('')
+        setNewPassword('')
+        setConfirmNewPassword('')
+        props.endChange()
+    }
+
+    //funkcja odpowiadająca za ustawienie odpowiedniego komunikatu
+    const setAlert = (alert, header, text) => {
+        setAlertClass(alert)
+        setHeader(header)
+        setText(text)
+    }
+
+    const getID = () => {
+        const id = localStorage.getItem('ID')
+        return id
+    }
+
     //funkcja sprawdzająca czy wprowadzone hasło odpowiada przypisanemu do konta, następnie wywołuje odpowiednią funkcję lub nie
     const confirmChange = (e) => {
         e.preventDefault()
@@ -46,26 +66,6 @@ const ChangePassword = props => {
         }).catch(function(error){
             console.log('error')
         })
-    }
-
-    const getID = () => {
-        const id = localStorage.getItem('ID')
-        return id
-    }
-
-    const endChange = () => {
-        setAlertClass('noDisplay')
-        setCurrentPassword('')
-        setNewPassword('')
-        setConfirmNewPassword('')
-        props.endChange()
-    }
-
-    //funkcja odpowiadająca za ustawienie odpowiedniego komunikatu
-    const setAlert = (alert, header, text) => {
-        setAlertClass(alert)
-        setHeader(header)
-        setText(text)
     }
 
     return(

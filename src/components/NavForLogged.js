@@ -14,76 +14,6 @@ const NavForLogged = props => {
     const [changePasswordClass, setChangePasswordClass] = useState('noDisplay')
     const [deleteFormClass, setDeleteFormClass] = useState('noDisplay')
 
-    //efekt pobierający i zapisujący zdjęcie użytkownika w bazie danych
-    useEffect(() => {
-        const nick = getNick()
-        fetch(`http://localhost:8080/users`)
-        .then(res => res.json())
-        .then(data => data.map(d => {
-            if(nick === d.username){
-                //console.log(data)
-                setImage(d.image)
-                localStorage.setItem('image', d.image)
-            }
-        }))
-        .catch(err => err)
-    }, [])
-
-    //funkcja zwracająca nick zalogowanego użytkownika
-    const getNick = () => {
-        const nick = localStorage.getItem('nick')
-        return nick
-    }
-
-    //wylogowanie
-    const Loggout = () => {
-        props.Loggout()
-        localStorage.setItem('nick', '')
-        localStorage.setItem('password', '')
-        localStorage.setItem('ID', '')
-    }
-
-    //wyjście z usuwania konta
-    const endDeleted = () => { 
-        setDeleteFormClass('noDisplay')
-    }
-
-    //wyjście ze zmiany hasła
-    const endChangePassword = () => {
-        setChangePasswordClass('noDisplay')
-    }
-
-    //wyjście ze statystyk
-    const endStatistics = () => {
-        setStatistics('noDisplay')
-    }    
-
-    //wyjście ze zmiany zdjęcia
-    const endChangePhoto = () => {
-        setChangeAvatarClass('noDisplay')
-    }
-
-    //funkcja odpowiadająca za zdjęcie użytkownika
-    const Image = () => {
-        if(image == null){
-            return Avatar
-        }else{
-            return image
-        }
-    }
-
-    //pokazujemy nawigację
-    const showNav = () => {
-        setNavForLoged('navForLoged')
-        setVisibleNav(true)
-    }
-
-    //ukrywamy nawigację
-    const hideNav = () => {
-        setNavForLoged('noDisplay')
-        setVisibleNav(false)
-    }
-
     //funkcja generująca elementy nawigacji i ładująca ekran adekwatny do wybranego elementu
     const ElementsOfNav = props => {
         const setId = () => {
@@ -104,6 +34,76 @@ const NavForLogged = props => {
             <div onClick={setId}>{props.e.title}</div>
         )
     }
+
+    //ukrywamy nawigację
+    const hideNav = () => {
+        setNavForLoged('noDisplay')
+        setVisibleNav(false)
+    }
+
+    //pokazujemy nawigację
+    const showNav = () => {
+        setNavForLoged('navForLoged')
+        setVisibleNav(true)
+    }
+
+    //wyjście ze zmiany zdjęcia
+    const endChangePhoto = () => {
+        setChangeAvatarClass('noDisplay')
+    }
+
+    //funkcja odpowiadająca za zdjęcie użytkownika
+    const Image = () => {
+        if(image == null){
+            return Avatar
+        }else{
+            return image
+        }
+    }
+    
+    //wyjście ze statystyk
+    const endStatistics = () => {
+        setStatistics('noDisplay')
+    }  
+
+    //wyjście ze zmiany hasła
+    const endChangePassword = () => {
+        setChangePasswordClass('noDisplay')
+    }  
+
+    //wyjście z usuwania konta
+    const endDeleted = () => { 
+        setDeleteFormClass('noDisplay')
+    }
+
+    //wylogowanie
+    const Loggout = () => {
+        props.Loggout()
+        localStorage.setItem('nick', '')
+        localStorage.setItem('password', '')
+        localStorage.setItem('ID', '')
+    }
+
+    //funkcja zwracająca nick zalogowanego użytkownika
+    const getNick = () => {
+        const nick = localStorage.getItem('nick')
+        return nick
+    }
+
+    //efekt pobierający i zapisujący zdjęcie użytkownika w bazie danych
+    useEffect(() => {
+        const nick = getNick()
+        fetch(`http://localhost:8080/users`)
+        .then(res => res.json())
+        .then(data => data.map(d => {
+            if(nick === d.username){
+                //console.log(data)
+                setImage(d.image)
+                localStorage.setItem('image', d.image)
+            }
+        }))
+        .catch(err => err)
+    }, [])
 
     const elements = props.navElements.map(e => <ElementsOfNav key={e.key} e={e}/>)
     const avatar = Image()

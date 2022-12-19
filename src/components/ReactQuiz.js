@@ -18,28 +18,54 @@ const ReactQuiz = props => {
     const [uncorrectFromDb, setUncorrectFromDb] = useState('')
     let QuestNumber = numberOfQuestion + 1;
 
-    const updateStats = () => {
-        const id = getID()
-        fetch(`http://localhost:8080/stats/${id}`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                quizzes_played: quizzesFromDb + quizzes,
-                correct_answers: correctFromDb + correct,
-                uncorrect_answers: uncorrectFromDb + uncorrect,
-            })
-        }).then(function(response) {
-            if(response.status === 200){
-                console.log('ok')
-            }
-        }).catch(function(error) {
-            console.log('error')
-        })
-        window.location.reload()
+    const resetQuestion = () => {
+        setNumberOfQuestion(0)
+        setHowManyCorrect([])
+        setReactBoxStartClass('ReactBoxStartOn')
+        setReactBoxQuizClass('ReactBoxQuizOff')
+        setEndQuiz('endQuizOff')
+        props.Back()
     }
+
+    function Arrow() {
+        return(
+            <img onClick={resetQuestion} src={leftArrow} className={'arrow'}/>
+        )
+    }
+
+    const startQuiz = () => {
+        setReactBoxStartClass('ReactBoxStartOff')
+        setReactBoxQuizClass('ReactBoxQuizOn')
+    }
+
+    function checkCorrect(correct) {
+        if(correct == true){
+            howManyCorrect.push(correct)
+        }
+    }
+
+    function nextQuestion(correct) {
+        let length = props.ReactQuestions.allAnswers.length
+        let i = numberOfQuestion + 1
+        if(i == length){
+            i=0
+            setReactBoxQuizClass('ReactBoxQuizOff')
+            setEndQuiz('endQuizOn')
+        }
+        setNumberOfQuestion(i)
+        checkCorrect(correct)
+    }
+
+    const getID = () => {
+        const id = localStorage.getItem('ID')
+        return id
+    }
+
+    useEffect(() => {
+        setCorrect(howManyCorrect.length)
+        let uncorrect = 10 - howManyCorrect.length
+        setUncorrect(uncorrect)
+    })
 
     const statsFromDb = () => {
         const getNick = () => {
@@ -62,53 +88,27 @@ const ReactQuiz = props => {
         ).catch(err => console.log('error'))
     }
 
-    useEffect(() => {
-        setCorrect(howManyCorrect.length)
-        let uncorrect = 10 - howManyCorrect.length
-        setUncorrect(uncorrect)
-    })
-
-    const getID = () => {
-        const id = localStorage.getItem('ID')
-        return id
-    }
-
-    function nextQuestion(correct) {
-        let length = props.ReactQuestions.allAnswers.length
-        let i = numberOfQuestion + 1
-        if(i == length){
-            i=0
-            setReactBoxQuizClass('ReactBoxQuizOff')
-            setEndQuiz('endQuizOn')
-        }
-        setNumberOfQuestion(i)
-        checkCorrect(correct)
-    }
-
-    function checkCorrect(correct) {
-        if(correct == true){
-            howManyCorrect.push(correct)
-        }
-    }
-
-    const startQuiz = () => {
-        setReactBoxStartClass('ReactBoxStartOff')
-        setReactBoxQuizClass('ReactBoxQuizOn')
-    }
-
-    function Arrow() {
-        return(
-            <img onClick={resetQuestion} src={leftArrow} className={'arrow'}/>
-        )
-    }
-
-    const resetQuestion = () => {
-        setNumberOfQuestion(0)
-        setHowManyCorrect([])
-        setReactBoxStartClass('ReactBoxStartOn')
-        setReactBoxQuizClass('ReactBoxQuizOff')
-        setEndQuiz('endQuizOff')
-        props.Back()
+    const updateStats = () => {
+        const id = getID()
+        fetch(`http://localhost:8080/stats/${id}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quizzes_played: quizzesFromDb + quizzes,
+                correct_answers: correctFromDb + correct,
+                uncorrect_answers: uncorrectFromDb + uncorrect,
+            })
+        }).then(function(response) {
+            if(response.status === 200){
+                console.log('ok')
+            }
+        }).catch(function(error) {
+            console.log('error')
+        })
+        window.location.reload()
     }
 
     return(

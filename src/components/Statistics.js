@@ -8,16 +8,6 @@ const Statistics = props => {
     const [uncorrectAnswers, setUncorrectAnswers] = useState('')
     const [image, setImage] = useState('')
 
-    //funkcja ustawiająca stosunek wygranych do przegranych 
-    const Ratio = () => {
-        if(correctAnswers != 0 || uncorrectAnswers != 0){
-        const ratio = correctAnswers / uncorrectAnswers
-        return Math.ceil(ratio * 10000) / 10000
-        }else{
-            return 0
-        }
-    }
-
     //efekt pobierający statystyki użytkownika z bazy danych
     useEffect(() => {
         const nick = getNick()
@@ -34,10 +24,11 @@ const Statistics = props => {
         .catch(err => err)
     }, [])
 
-    const getNick = () => {
-        const nick = localStorage.getItem('nick')
-        return nick
-    } 
+    //funkcja pobierająca zdjęcie użytkownika
+    const getImage = () => {
+        const image = localStorage.getItem('image')
+        return image
+    }
 
     //warunek ustawiający odpowiednie zdjęcie
     const Image = () => {
@@ -47,11 +38,20 @@ const Statistics = props => {
             return getImage()
         }
     }
+    
+    const getNick = () => {
+        const nick = localStorage.getItem('nick')
+        return nick
+    } 
 
-    //funkcja pobierająca zdjęcie użytkownika
-    const getImage = () => {
-        const image = localStorage.getItem('image')
-        return image
+    //funkcja ustawiająca stosunek wygranych do przegranych 
+    const Ratio = () => {
+        if(correctAnswers != 0 || uncorrectAnswers != 0){
+        const ratio = correctAnswers / uncorrectAnswers
+        return Math.ceil(ratio * 10000) / 10000
+        }else{
+            return 0
+        }
     }
 
     return(

@@ -380,6 +380,83 @@ class Quiz extends React.Component{
         ]
     }
 
+    //funkcja umożliwiająca ustawianie klas dla kontenerów
+    SetClass(container, JS, HTML, CSS, React, Login, Register, DeleteAccount){
+        this.setState({
+            quizCssClass: {
+                containerClass: container,
+                JSClass: JS,
+                HTMLClass: HTML,
+                CSSClass: CSS,
+                ReactClass: React,
+                LoginClass: Login,
+                RegisterClass: Register,
+                DeleteAccount: DeleteAccount
+            }
+        })
+    }
+
+    //funkcja pobierająca nick użytkownika przy poprawnym zalogowaniu
+    getNick() {
+        let nick = localStorage.getItem('nick')
+        return nick
+    } 
+
+    //logowanie
+    Logged() {
+        localStorage.setItem('logged', JSON.stringify(true))
+    }
+
+     //wylogowanie
+    Loggout() {
+        localStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
+    //funkcja zwracająca status logowania użytkownika
+    getUserStatus() {
+        let log = localStorage.getItem('logged')
+        return JSON.parse(log)
+    }
+
+    //funkcja ustawiająca kontener adekwatnie do statusu logowania użytkownika
+    setContainerLogged() {
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+    }
+
+    //funkcja umożliwiająca ustawienie zdjęcia konta dla niezalogowanego użytkownika i umożliwiająca przejście do ekranu logowania
+    Account(img) {
+        const Login = () => {
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
+        }
+
+        return( 
+            <img src={img} onClick={Login} title={'Login/Register'}/>
+        )
+    }
+
+    //możwośc powrotu do strony głównej
+    Back() {
+        this.state.numberOfQuestion = 0
+        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
+    }
+    
+    //funkcja umożliwiająca przejście do ekranu rejestracji
+    Register() {
+        const loadRegister = () => {
+            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn', 'noDisplay')
+        }
+
+        return(
+            <span onClick={loadRegister}>Register</span>
+        )
+    }
+
+    //powrót z ekranu rejestracji do ekranu logowania
+    BackToLogin(){
+        this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
+    }
+
     //funkcja sprawdzająca, który quiz został wybrany i ładująca odpowiedni
     SelectedQuiz(id) {
         if(id == 1){
@@ -410,84 +487,7 @@ class Quiz extends React.Component{
             </div>
         )
     }
-
-    //powrót z ekranu rejestracji do ekranu logowania
-    BackToLogin(){
-        this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
-    }
     
-    //funkcja umożliwiająca przejście do ekranu rejestracji
-    Register() {
-        const loadRegister = () => {
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'registerOn', 'noDisplay')
-        }
-
-        return(
-            <span onClick={loadRegister}>Register</span>
-        )
-    }
-
-    //możwośc powrotu do strony głównej
-    Back() {
-        this.state.numberOfQuestion = 0
-        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
-    }
-
-    //funkcja umożliwiająca ustawienie zdjęcia konta dla niezalogowanego użytkownika i umożliwiająca przejście do ekranu logowania
-    Account(img) {
-        const Login = () => {
-            this.SetClass('noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'loginOn', 'noDisplay', 'noDisplay')
-        }
-
-        return( 
-            <img src={img} onClick={Login} title={'Login/Register'}/>
-        )
-    }
-
-    //funkcja ustawiająca kontener adekwatnie do statusu logowania użytkownika
-    setContainerLogged() {
-        this.SetClass('container', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay', 'noDisplay')
-    }
-
-    //funkcja zwracająca status logowania użytkownika
-    getUserStatus() {
-        let log = localStorage.getItem('logged')
-        return JSON.parse(log)
-    }
-
-    //wylogowanie
-    Loggout() {
-        localStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
-    }
-
-    //logowanie
-    Logged() {
-        localStorage.setItem('logged', JSON.stringify(true))
-    }
-
-    //funkcja pobierająca nick użytkownika przy poprawnym zalogowaniu
-    getNick() {
-        let nick = localStorage.getItem('nick')
-        return nick
-    } 
-
-    //funkcja umożliwiająca ustawianie klas dla kontenerów
-    SetClass(container, JS, HTML, CSS, React, Login, Register, DeleteAccount){
-        this.setState({
-            quizCssClass: {
-                containerClass: container,
-                JSClass: JS,
-                HTMLClass: HTML,
-                CSSClass: CSS,
-                ReactClass: React,
-                LoginClass: Login,
-                RegisterClass: Register,
-                DeleteAccount: DeleteAccount
-            }
-        })
-    }
-
     render(){
         let isLogged = this.state.logged
         return(

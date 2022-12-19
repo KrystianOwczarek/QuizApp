@@ -9,6 +9,53 @@ const Login = props => {
     const [header, setHeader] = useState('')
     const [message, setMessage] = useState('')
 
+    //funkcja służąca do ustawienia odpowiedniego komunikatu
+    const setAlert = (alert, header, message) => {
+        setAlertClass(alert)
+        setHeader(header)
+        setMessage(message)
+    }
+
+    //strzałka, która cofa do głownego ekranu po naciśnięciu
+    function Arrow() {
+        const backToMainWeb = () => {
+            setLogin('')
+            setPassword('')
+            setAlertClass('noDisplay')
+            props.Back()
+        }
+
+        return(
+            <img onClick={backToMainWeb} src={leftArrow} als='arrow' className={'arrow'}/>
+        )
+    }
+
+    //funkcja pobierająca id i statystyki z bazy danych
+    const setID = () => {
+        const getNick = () => {
+            const nick = localStorage.getItem('nick')
+            return nick
+        }
+        const username = getNick()
+        fetch('http://localhost:8080/users')
+        .then(res => res.json())
+        .then(data => data.map(d => {
+            if(username === d.username){
+                localStorage.setItem('ID', '')
+                localStorage.setItem('ID', d.id)
+            }
+        }))
+        .catch(err => console.log(err))
+    }
+
+    //funkcja wywołująca funkcje logowania i usuwająca zawartość loginu i hasła
+    const checkAccount = (e) => {
+        e.preventDefault()
+        loginUser(login, password)
+        setLogin('')
+        setPassword('')
+    }
+
     //przejście do okna rejestracji
     const referForRegister = () => {
         const clearTheForm = () => {
@@ -20,14 +67,6 @@ const Login = props => {
         return(
             <span onClick={clearTheForm}>{props.Register()}</span>
         )
-    }
-
-    //funkcja wywołująca funkcje logowania i usuwająca zawartość loginu i hasła
-    const checkAccount = (e) => {
-        e.preventDefault()
-        loginUser(login, password)
-        setLogin('')
-        setPassword('')
     }
 
     //funkcja logująca użytkownika
@@ -55,46 +94,6 @@ const Login = props => {
         }).catch(function(error) {
             setAlert('failure', 'Error!', 'Something went wrong.')
         })
-    }
-
-    //funkcja pobierająca id i statystyki z bazy danych
-    const setID = () => {
-        const getNick = () => {
-            const nick = localStorage.getItem('nick')
-            return nick
-        }
-        const username = getNick()
-        fetch('http://localhost:8080/users')
-        .then(res => res.json())
-        .then(data => data.map(d => {
-            if(username === d.username){
-                localStorage.setItem('ID', '')
-                localStorage.setItem('ID', d.id)
-            }
-        }))
-        .catch(err => console.log(err))
-    }
-
-
-    //strzałka, która cofa do głownego ekranu po naciśnięciu
-    function Arrow() {
-        const backToMainWeb = () => {
-            setLogin('')
-            setPassword('')
-            setAlertClass('noDisplay')
-            props.Back()
-        }
-
-        return(
-            <img onClick={backToMainWeb} src={leftArrow} als='arrow' className={'arrow'}/>
-        )
-    }
-
-    //funkcja służąca do ustawienia odpowiedniego komunikatu
-    const setAlert = (alert, header, message) => {
-        setAlertClass(alert)
-        setHeader(header)
-        setMessage(message)
     }
 
     return(
